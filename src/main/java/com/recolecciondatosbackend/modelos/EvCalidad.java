@@ -8,11 +8,12 @@ import java.time.LocalDate;
 @Table(name = "evcalidad")
 public class EvCalidad {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idEvaluacion")
-    private Long idEvaluacion;
+    private int idEvaluacion;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idPeriodoAcademico")
+    @JoinColumn(name = "idPeriodo")
     private Periodo periodoAcademico;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -22,11 +23,11 @@ public class EvCalidad {
     @Column(name = "Fecha")
     private LocalDate fecha;
 
-    public Long getIdEvaluacion() {
+    public int getIdEvaluacion() {
         return idEvaluacion;
     }
 
-    public void setIdEvaluacion(Long idEvaluacion) {
+    public void setIdEvaluacion(Integer idEvaluacion) {
         this.idEvaluacion = idEvaluacion;
     }
 
@@ -57,7 +58,7 @@ public class EvCalidad {
     public EvCalidad() {
     }
 
-    public EvCalidad(Long idEvaluacion, Periodo periodoAcademico, Restaurante restaurante, LocalDate fecha) {
+    public EvCalidad(int idEvaluacion, Periodo periodoAcademico, Restaurante restaurante, LocalDate fecha) {
         this.idEvaluacion = idEvaluacion;
         this.periodoAcademico = periodoAcademico;
         this.restaurante = restaurante;

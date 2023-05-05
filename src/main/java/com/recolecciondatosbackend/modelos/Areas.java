@@ -8,7 +8,8 @@ import java.time.LocalDate;
 @Table(name = "areas")
 public class Areas {
     @Id
-    @Column(name = "idArea", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_area", nullable = false)
     private int idArea;
 
     @ManyToOne(fetch = FetchType.LAZY)
