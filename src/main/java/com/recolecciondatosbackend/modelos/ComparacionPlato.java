@@ -22,7 +22,7 @@ public class ComparacionPlato {
 
     @ManyToOne
     @JoinColumn(name = "idPeriodo")
-    private periodo periodo;
+    private Periodo periodo;
 
     @Column(name = "FechaComparacion")
     private LocalDate fechaComparacion;
@@ -57,11 +57,11 @@ public class ComparacionPlato {
         this.platoCompetencia = platoCompetencia;
     }
 
-    public periodo getPeriodo() {
+    public Periodo getPeriodo() {
         return periodo;
     }
 
-    public void setPeriodo(periodo periodo) {
+    public void setPeriodo(Periodo periodo) {
         this.periodo = periodo;
     }
 
@@ -92,7 +92,7 @@ public class ComparacionPlato {
     public ComparacionPlato() {
     }
 
-    public ComparacionPlato(int idComparacion, Plato platoUAO, PlatoCompetencia platoCompetencia, periodo periodo, LocalDate fechaComparacion, String responsableProceso, String responsableCargue) {
+    public ComparacionPlato(int idComparacion, Plato platoUAO, PlatoCompetencia platoCompetencia, Periodo periodo, LocalDate fechaComparacion, String responsableProceso, String responsableCargue) {
         this.idComparacion = idComparacion;
         this.platoUAO = platoUAO;
         this.platoCompetencia = platoCompetencia;
