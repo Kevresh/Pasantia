@@ -1,29 +1,21 @@
-package com.recolecciondatosbackend.modelos;
+package com.recolecciondatosbackend.DTO;
 
+import com.recolecciondatosbackend.modelos.Restaurante;
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "plato")
-public class Plato {
+public class platoDTO implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idPlato")
     private int idPlato;
 
-    @ManyToOne
-    @JoinColumn(name = "idRestaurante")
     private Restaurante restaurante;
 
-    @Column(name = "Nombre")
     private String nombre;
 
-    @Column(name = "Precio")
     private int precio;
 
-    @Column(name = "fechaCreacion")
     private LocalDate fechaCreacion;
 
     public int getIdPlato() {
@@ -66,13 +58,14 @@ public class Plato {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public Plato() {
-    }
-
-    public Plato(Restaurante restaurante, String nombre, int precio, LocalDate fechaCreacion) {
+    public platoDTO(int idPlato, Restaurante restaurante, String nombre, int precio, LocalDate fechaCreacion) {
+        this.idPlato = idPlato;
         this.restaurante = restaurante;
         this.nombre = nombre;
         this.precio = precio;
         this.fechaCreacion = fechaCreacion;
+    }
+
+    public platoDTO() {
     }
 }
