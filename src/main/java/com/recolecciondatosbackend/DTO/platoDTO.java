@@ -1,5 +1,6 @@
 package com.recolecciondatosbackend.DTO;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.recolecciondatosbackend.modelos.Restaurante;
 import jakarta.persistence.*;
 
@@ -10,6 +11,7 @@ public class platoDTO implements Serializable {
 
     private int idPlato;
 
+    @JsonIgnore
     private Restaurante restaurante;
 
     private String nombre;
@@ -58,9 +60,8 @@ public class platoDTO implements Serializable {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public platoDTO(int idPlato, Restaurante restaurante, String nombre, int precio, LocalDate fechaCreacion) {
+    public platoDTO(int idPlato, String nombre, int precio, LocalDate fechaCreacion) {
         this.idPlato = idPlato;
-        this.restaurante = restaurante;
         this.nombre = nombre;
         this.precio = precio;
         this.fechaCreacion = fechaCreacion;
