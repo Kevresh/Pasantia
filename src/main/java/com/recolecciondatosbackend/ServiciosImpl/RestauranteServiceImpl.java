@@ -1,6 +1,7 @@
 package com.recolecciondatosbackend.ServiciosImpl;
 
 import com.recolecciondatosbackend.DTO.platoDTO;
+import com.recolecciondatosbackend.DTO.restauranteBasicoDTO;
 import com.recolecciondatosbackend.DTO.restauranteDTO;
 import com.recolecciondatosbackend.Servicios.RestauranteService;
 import com.recolecciondatosbackend.modelos.Plato;
@@ -52,6 +53,14 @@ public class RestauranteServiceImpl implements RestauranteService {
             restaurantesDTO.add(restauranteDTO);
         }
         return restaurantesDTO;
+    }
+
+    @Override
+    public List<restauranteBasicoDTO> obtenerRestaurantes() {
+        List<Restaurante> restaurantes = obtenerTodosLosRestaurantes();
+        return restaurantes.stream()
+                .map(restaurante -> modelMapper.map(restaurante, restauranteBasicoDTO.class))
+                .collect(Collectors.toList());
     }
 
 }

@@ -1,8 +1,7 @@
 package com.recolecciondatosbackend.controladores;
 
-import com.recolecciondatosbackend.DTO.platoDTO;
+import com.recolecciondatosbackend.DTO.restauranteBasicoDTO;
 import com.recolecciondatosbackend.DTO.restauranteDTO;
-import com.recolecciondatosbackend.Servicios.PlatoService;
 import com.recolecciondatosbackend.Servicios.RestauranteService;
 import com.recolecciondatosbackend.modelos.Restaurante;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -31,7 +29,18 @@ public class RestauranteController {
             return ResponseEntity.ok(restaurantes);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Error obteniendo restaurantes con platos");
+                    .body("Error obteniendo la informacion de los restaurantes");
+        }
+    }
+
+    @GetMapping("/getRestaurantes")
+    public ResponseEntity<?> getRestaurantes(){
+        try {
+            List<restauranteBasicoDTO> restaurantes = restauranteService.obtenerRestaurantes();
+            return ResponseEntity.ok(restaurantes);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error obteniendo restaurantes");
         }
     }
 }

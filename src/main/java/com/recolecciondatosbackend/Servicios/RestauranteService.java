@@ -1,5 +1,6 @@
 package com.recolecciondatosbackend.Servicios;
 
+import com.recolecciondatosbackend.DTO.restauranteBasicoDTO;
 import com.recolecciondatosbackend.DTO.restauranteDTO;
 import com.recolecciondatosbackend.modelos.Plato;
 import com.recolecciondatosbackend.modelos.Restaurante;
@@ -11,5 +12,6 @@ public interface RestauranteService {
 
    List<restauranteDTO> obtenerRestaurantesConPlatos();
 
+   List<restauranteBasicoDTO> obtenerRestaurantes();
 
 }

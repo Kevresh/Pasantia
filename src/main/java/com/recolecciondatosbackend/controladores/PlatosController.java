@@ -25,8 +25,13 @@ public class PlatosController {
     }
 
     @GetMapping("/PlatosConRestaurantes")
-    public ResponseEntity<List<platoDTO>> getPlatosConRestaurante(){
-        List<platoDTO> platos = platoService.obtenerPlatosConRestaurantes();
-        return ResponseEntity.ok(platos);
+    public ResponseEntity<?> getPlatosConRestaurante() {
+        try {
+            List<platoDTO> platos = platoService.obtenerPlatosConRestaurantes();
+            return ResponseEntity.ok(platos);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error obteniendo platos con restaurantes: " + e.getMessage());
+        }
     }
 }
