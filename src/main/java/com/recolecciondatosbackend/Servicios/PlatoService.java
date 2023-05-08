@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 public interface PlatoService {
-    public ResponseEntity<?> crearPlato(Plato plato);
+    ResponseEntity<?> crearPlato(Plato plato);
 
-    public List<platoDTO> obtenerPlatosConRestaurantes();
+    List<platoDTO> obtenerPlatosConRestaurantes();
 }
