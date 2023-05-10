@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface loginRepository extends JpaRepository<User, String> {
-    Optional<User> findByUsuarioAndContrasena(String usuario, String contrasena);
+public interface userRepository extends JpaRepository<User, String> {
+    Optional<User> findByUsuario(String usuario);
 }

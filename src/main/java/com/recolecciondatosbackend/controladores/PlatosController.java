@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/platos")
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = "http://localhost:3000/")
 public class PlatosController {
 
     @Autowired
