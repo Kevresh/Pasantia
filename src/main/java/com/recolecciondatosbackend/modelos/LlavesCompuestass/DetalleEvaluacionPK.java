@@ -4,17 +4,19 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 @Embeddable
-public class AreasPuntosPK implements Serializable {
+public class DetalleEvaluacionPK implements Serializable {
 
     @Column(name = "id_area")
     private int idArea;
 
-    @Column(name = "id_punto")
+    @Column(name = "id_pregunta")
     private int idPunto;
 
-    public AreasPuntosPK() {
+    @Column(name = "id_calificacion")
+    private int idCalificacion;
+
+    public DetalleEvaluacionPK() {
     }
 }

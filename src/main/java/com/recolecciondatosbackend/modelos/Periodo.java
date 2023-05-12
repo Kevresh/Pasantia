@@ -1,9 +1,6 @@
 package com.recolecciondatosbackend.modelos;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
@@ -11,20 +8,31 @@ import java.time.LocalDate;
 @Table(name = "periodo")
 public class Periodo {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idPeriodo")
-    private String idPeriodo;
+    private int idPeriodo;
 
+    @Column(name="periodo")
+    private String periodo;
     @Column(name = "fechaInicio")
     private LocalDate fechaInicio;
 
     @Column(name = "fechaFin")
     private LocalDate fechaFin;
 
-    public String getIdPeriodo() {
+    public String getPeriodo() {
+        return periodo;
+    }
+
+    public void setPeriodo(String periodo) {
+        this.periodo = periodo;
+    }
+
+    public int getIdPeriodo() {
         return idPeriodo;
     }
 
-    public void setIdPeriodo(String idPeriodo) {
+    public void setIdPeriodo(int idPeriodo) {
         this.idPeriodo = idPeriodo;
     }
 
@@ -47,9 +55,10 @@ public class Periodo {
     public Periodo() {
     }
 
-    public Periodo(String idPeriodo, LocalDate fechaInicio, LocalDate fechaFin) {
+    public Periodo(int idPeriodo, String periodo,LocalDate fechaInicio, LocalDate fechaFin) {
         this.idPeriodo = idPeriodo;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
+        this.periodo = periodo;
     }
 }

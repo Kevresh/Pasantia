@@ -12,9 +12,6 @@ public class Areas {
     @Column(name = "id_area", nullable = false)
     private int idArea;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idEvaluacion", nullable = false)
-    private EvCalidad evCalidad;
 
     @Column(name = "Fecha", nullable = false)
     private LocalDate fecha;
@@ -28,14 +25,6 @@ public class Areas {
 
     public void setIdArea(int idArea) {
         this.idArea = idArea;
-    }
-
-    public EvCalidad getEvCalidad() {
-        return evCalidad;
-    }
-
-    public void setEvCalidad(EvCalidad evCalidad) {
-        this.evCalidad = evCalidad;
     }
 
     public LocalDate getFecha() {
@@ -57,9 +46,8 @@ public class Areas {
     public Areas() {
     }
 
-    public Areas(int idArea, EvCalidad evCalidad, LocalDate fecha, String nombre) {
+    public Areas(int idArea, LocalDate fecha, String nombre) {
         this.idArea = idArea;
-        this.evCalidad = evCalidad;
         this.fecha = fecha;
         this.nombre = nombre;
     }
