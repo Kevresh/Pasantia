@@ -19,4 +19,10 @@ public class DetalleEvaluacionPK implements Serializable {
 
     public DetalleEvaluacionPK() {
     }
+
+    public DetalleEvaluacionPK(int idArea, int idPunto, int idCalificacion) {
+        this.idArea = idArea;
+        this.idPunto = idPunto;
+        this.idCalificacion = idCalificacion;
+    }
 }

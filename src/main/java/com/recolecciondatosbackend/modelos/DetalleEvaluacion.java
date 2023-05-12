@@ -12,7 +12,6 @@ public class DetalleEvaluacion {
     private DetalleEvaluacionPK id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @MapsId("idArea")
     @JoinColumn(name = "id_area", referencedColumnName = "id_area", insertable = false, updatable = false)
     private Areas area;
 
