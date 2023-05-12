@@ -1,14 +1,10 @@
 package com.recolecciondatosbackend.ServiciosImpl;
 
 import com.recolecciondatosbackend.DTO.areasDTO;
-import com.recolecciondatosbackend.DTO.platoDTO;
 import com.recolecciondatosbackend.DTO.preguntasDTO;
-import com.recolecciondatosbackend.DTO.restauranteDTO;
 import com.recolecciondatosbackend.Servicios.AreaService;
 import com.recolecciondatosbackend.modelos.Areas;
-import com.recolecciondatosbackend.modelos.Plato;
 import com.recolecciondatosbackend.modelos.Preguntas;
-import com.recolecciondatosbackend.modelos.Restaurante;
 import com.recolecciondatosbackend.repositorios.AreaRepository;
 import com.recolecciondatosbackend.repositorios.PreguntasRepository;
 import org.modelmapper.ModelMapper;
@@ -46,7 +42,7 @@ public class AreaServiceImpl implements AreaService {
             if (preguntas != null && !preguntas.isEmpty()) {
                 List<preguntasDTO> PreguntasDTO = new ArrayList<>();
                 for (Preguntas pregunta : preguntas) {
-                    preguntasDTO PreguntaDTO = new preguntasDTO(pregunta.getIdPunto(),pregunta.getIdArea(),pregunta.getNombre());
+                    preguntasDTO PreguntaDTO = new preguntasDTO(pregunta.getIdPregunta(),pregunta.getIdArea(),pregunta.getNombre());
 
                     PreguntasDTO.add(PreguntaDTO);
                 }

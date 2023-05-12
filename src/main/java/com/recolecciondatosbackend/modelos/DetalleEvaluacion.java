@@ -23,6 +23,10 @@ public class DetalleEvaluacion {
     @JoinColumn(name = "id_calificacion", referencedColumnName = "id_calificacion", insertable = false, updatable = false)
     private Calificacion calificacon;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idEvaluacion", referencedColumnName = "idEvaluacion", insertable = false, updatable = false)
+    private EvCalidad evcalidad;
+
     @Column(name = "observaciones")
     private String observaciones;
 
@@ -32,6 +36,14 @@ public class DetalleEvaluacion {
 
     public void setId(DetalleEvaluacionPK id) {
         this.id = id;
+    }
+
+    public EvCalidad getEvcalidad() {
+        return evcalidad;
+    }
+
+    public void setEvcalidad(EvCalidad evcalidad) {
+        this.evcalidad = evcalidad;
     }
 
     public Areas getArea() {

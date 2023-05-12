@@ -12,17 +12,21 @@ public class DetalleEvaluacionPK implements Serializable {
     private int idArea;
 
     @Column(name = "id_pregunta")
-    private int idPunto;
+    private int idPregunta;
 
     @Column(name = "id_calificacion")
     private int idCalificacion;
 
+    @Column(name = "idEvaluacion")
+    private int idEvaluacion;
+
     public DetalleEvaluacionPK() {
     }
 
-    public DetalleEvaluacionPK(int idArea, int idPunto, int idCalificacion) {
+    public DetalleEvaluacionPK(int idArea, int idPregunta, int idCalificacion, int idEvaluacion) {
         this.idArea = idArea;
-        this.idPunto = idPunto;
+        this.idPregunta = idPregunta;
         this.idCalificacion = idCalificacion;
+        this.idEvaluacion = idEvaluacion;
     }
 }

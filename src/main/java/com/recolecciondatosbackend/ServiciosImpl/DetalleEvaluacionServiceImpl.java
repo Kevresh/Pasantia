@@ -23,7 +23,7 @@ public class DetalleEvaluacionServiceImpl implements DetalleEvaluacionService {
         try{
             for (detalleEvaluacionDTO detalleEvaluacionDTO : DetallesEvaluacionesDTO) {
                 DetalleEvaluacion detalleEvaluacion = new DetalleEvaluacion();
-                detalleEvaluacion.setId(new DetalleEvaluacionPK(detalleEvaluacionDTO.getIdArea(), detalleEvaluacionDTO.getIdPregunta(), detalleEvaluacionDTO.getIdCalificacion()));
+                detalleEvaluacion.setId(new DetalleEvaluacionPK(detalleEvaluacionDTO.getIdArea(), detalleEvaluacionDTO.getIdPregunta(), detalleEvaluacionDTO.getIdCalificacion(), detalleEvaluacionDTO.getIdEvCalidad()));
                 detalleEvaluacion.setObservaciones(detalleEvaluacionDTO.getObservaciones());
                 detalleEvaluacionRepository.save(detalleEvaluacion);
             }

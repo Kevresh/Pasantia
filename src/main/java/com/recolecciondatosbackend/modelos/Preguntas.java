@@ -8,7 +8,7 @@ public class Preguntas {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_pregunta")
-    private int idPunto;
+    private int idPregunta;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_area")
@@ -17,12 +17,12 @@ public class Preguntas {
     @Column(name = "Nombre")
     private String nombre;
 
-    public int getIdPunto() {
-        return idPunto;
+    public int getIdPregunta() {
+        return idPregunta;
     }
 
-    public void setIdPunto(int idPunto) {
-        this.idPunto = idPunto;
+    public void setIdPregunta(int idPunto) {
+        this.idPregunta = idPunto;
     }
 
     public String getNombre() {
@@ -44,8 +44,8 @@ public class Preguntas {
     public Preguntas() {
     }
 
-    public Preguntas(int idPunto, Areas area, String nombre) {
-        this.idPunto = idPunto;
+    public Preguntas(int idPregunta, Areas area, String nombre) {
+        this.idPregunta = idPregunta;
         this.area = area;
         this.nombre = nombre;
     }
