@@ -9,16 +9,16 @@ import jakarta.persistence.Table;
 @Table(name = "user")
 public class User {
     @Id
-    @Column(name = "Cedula")
+    @Column(name = "Cedula", nullable = false)
     private String cedula;
 
-    @Column(name = "Usuario")
+    @Column(name = "Usuario", nullable = false)
     private String usuario;
 
-    @Column(name = "Contrasena")
+    @Column(name = "Contrasena", nullable = false)
     private String contrasena;
 
-    @Column(name = "Nombre")
+    @Column(name = "Nombre", nullable = false)
     private String nombre;
 
     public String getCedula() {

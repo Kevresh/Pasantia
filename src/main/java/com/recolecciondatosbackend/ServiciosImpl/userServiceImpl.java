@@ -6,7 +6,6 @@ import com.recolecciondatosbackend.repositorios.userRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -36,7 +35,7 @@ public class userServiceImpl implements userService {
             String contrasenaEncriptada = passwordEncoder.encode(user.getContrasena());
             user.setContrasena(contrasenaEncriptada);
             UserRepository.save(user);
-            return ResponseEntity.status(HttpStatus.CREATED).body("El usuarip " + user.getUsuario() + " ha sido creado correctamente.");
+            return ResponseEntity.status(HttpStatus.CREATED).body("El usuario " + user.getUsuario() + " ha sido creado correctamente.");
         }catch (Exception e){
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Ocurrio un Error Guardando el Usuario");

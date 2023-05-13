@@ -9,28 +9,28 @@ import java.time.LocalDate;
 public class ComparacionPlato {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idComparacion")
+    @Column(name = "idComparacion", nullable = false)
     private int idComparacion;
 
     @ManyToOne
-    @JoinColumn(name = "codPlatoUAO")
+    @JoinColumn(name = "codPlatoUAO", nullable = false)
     private Plato platoUAO;
 
     @ManyToOne
-    @JoinColumn(name = "codPlatoCompetencia")
+    @JoinColumn(name = "codPlatoCompetencia", nullable = false)
     private PlatoCompetencia platoCompetencia;
 
     @ManyToOne
-    @JoinColumn(name = "idPeriodo")
+    @JoinColumn(name = "idPeriodo", nullable = false)
     private Periodo periodo;
 
-    @Column(name = "FechaComparacion")
+    @Column(name = "FechaComparacion", nullable = false)
     private LocalDate fechaComparacion;
 
-    @Column(name = "ResponsableProceso")
+    @Column(name = "ResponsableProceso", nullable = false)
     private String responsableProceso;
 
-    @Column(name = "ResponsableCargue")
+    @Column(name = "ResponsableCargue", nullable = false)
     private String responsableCargue;
 
     public int getIdComparacion() {
@@ -92,8 +92,7 @@ public class ComparacionPlato {
     public ComparacionPlato() {
     }
 
-    public ComparacionPlato(int idComparacion, Plato platoUAO, PlatoCompetencia platoCompetencia, Periodo periodo, LocalDate fechaComparacion, String responsableProceso, String responsableCargue) {
-        this.idComparacion = idComparacion;
+    public ComparacionPlato(Plato platoUAO, PlatoCompetencia platoCompetencia, Periodo periodo, LocalDate fechaComparacion, String responsableProceso, String responsableCargue) {
         this.platoUAO = platoUAO;
         this.platoCompetencia = platoCompetencia;
         this.periodo = periodo;

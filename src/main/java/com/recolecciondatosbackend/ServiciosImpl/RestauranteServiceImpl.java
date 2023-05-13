@@ -4,6 +4,7 @@ import com.recolecciondatosbackend.DTO.platoDTO;
 import com.recolecciondatosbackend.DTO.restauranteBasicoDTO;
 import com.recolecciondatosbackend.DTO.restauranteDTO;
 import com.recolecciondatosbackend.Servicios.RestauranteService;
+import com.recolecciondatosbackend.excepciones.ResourceNotFoundException;
 import com.recolecciondatosbackend.modelos.Plato;
 import com.recolecciondatosbackend.modelos.Restaurante;
 import com.recolecciondatosbackend.repositorios.PlatoRepository;
@@ -30,6 +31,12 @@ public class RestauranteServiceImpl implements RestauranteService {
     @Override
     public List<Restaurante> obtenerTodosLosRestaurantes() {
         return restauranteRepository.findAll();
+    }
+
+    @Override
+    public Restaurante getRestauranteById(int id) {
+        return restauranteRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("No existe el restaurante con el id " + id));
     }
 
     @Override

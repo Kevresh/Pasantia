@@ -1,6 +1,7 @@
 package com.recolecciondatosbackend.ServiciosImpl;
 
 import com.recolecciondatosbackend.Servicios.PlatoCompetenciaService;
+import com.recolecciondatosbackend.excepciones.ResourceNotFoundException;
 import com.recolecciondatosbackend.modelos.Plato;
 import com.recolecciondatosbackend.modelos.PlatoCompetencia;
 import com.recolecciondatosbackend.repositorios.PlatoCompetenciaRepository;
@@ -25,5 +26,11 @@ public class PlatoCompetenciaServiceImpl implements PlatoCompetenciaService {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Ocurrio un Error Guardando el Plato");
         }
+    }
+
+    @Override
+    public PlatoCompetencia getPlatoCompetenciaById(int id) {
+        return platoCompetenciaRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("No existe el plato competencia con el id " + id));
     }
 }

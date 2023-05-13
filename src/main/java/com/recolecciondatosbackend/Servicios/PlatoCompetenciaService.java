@@ -5,4 +5,6 @@ import org.springframework.http.ResponseEntity;
 
 public interface PlatoCompetenciaService {
     ResponseEntity<?> crearPlatoCompetencia(PlatoCompetencia plato);
+
+    PlatoCompetencia getPlatoCompetenciaById(int id);
 }

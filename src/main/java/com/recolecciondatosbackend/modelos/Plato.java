@@ -14,16 +14,16 @@ public class Plato {
     private int idPlato;
 
     @ManyToOne
-    @JoinColumn(name = "idRestaurante")
+    @JoinColumn(name = "idRestaurante", nullable = false)
     private Restaurante restaurante;
 
-    @Column(name = "Nombre")
+    @Column(name = "Nombre", nullable = false)
     private String nombre;
 
-    @Column(name = "Precio")
+    @Column(name = "Precio", nullable = false)
     private int precio;
 
-    @Column(name = "fechaCreacion")
+    @Column(name = "fechaCreacion", nullable = false)
     private LocalDate fechaCreacion;
 
     public int getIdPlato() {

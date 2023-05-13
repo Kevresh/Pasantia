@@ -11,10 +11,10 @@ public class Preguntas {
     private int idPregunta;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_area")
+    @JoinColumn(name = "id_area", nullable = false)
     private Areas area;
 
-    @Column(name = "Nombre")
+    @Column(name = "Nombre", nullable = false)
     private String nombre;
 
     public int getIdPregunta() {

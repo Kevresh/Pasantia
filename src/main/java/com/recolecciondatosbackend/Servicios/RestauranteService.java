@@ -14,4 +14,7 @@ public interface RestauranteService {
 
    List<restauranteBasicoDTO> obtenerRestaurantes();
 
+   Restaurante getRestauranteById(int id);
+
+
 }

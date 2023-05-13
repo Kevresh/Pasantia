@@ -3,6 +3,7 @@ package com.recolecciondatosbackend.ServiciosImpl;
 import com.recolecciondatosbackend.DTO.periodoDTO;
 import com.recolecciondatosbackend.DTO.restauranteBasicoDTO;
 import com.recolecciondatosbackend.Servicios.periodoService;
+import com.recolecciondatosbackend.excepciones.ResourceNotFoundException;
 import com.recolecciondatosbackend.modelos.Periodo;
 import com.recolecciondatosbackend.modelos.Restaurante;
 import com.recolecciondatosbackend.repositorios.PeriodoRepository;
@@ -28,5 +29,11 @@ public class PeriodoServiceImpl implements periodoService {
         return periodos.stream()
                 .map(periodo -> modelMapper.map(periodo, periodoDTO.class))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public Periodo getPeriodoById(int id){
+        return periodoRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("No existe el periodo con el id " + id));
     }
 }

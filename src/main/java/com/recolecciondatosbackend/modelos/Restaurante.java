@@ -11,7 +11,7 @@ public class Restaurante {
     @Column(name = "idRestaurante")
     private int idRestaurante;
 
-    @Column(name = "Nombre")
+    @Column(name = "Nombre", nullable = false)
     private String nombre;
 
     // getters y setters

@@ -12,19 +12,19 @@ public class PlatoCompetencia {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPlato;
 
-    @Column(name = "nombreUniversidad")
+    @Column(name = "nombreUniversidad", nullable = false)
     private String nombreUniversidad;
 
-    @Column(name = "nombreRestaurante")
+    @Column(name = "nombreRestaurante", nullable = false)
     private String nombreRestaurante;
 
-    @Column(name = "Nombre")
+    @Column(name = "Nombre", nullable = false)
     private String nombre;
 
-    @Column(name = "Precio")
+    @Column(name = "Precio", nullable = false)
     private int precio;
 
-    @Column(name = "fechaCreacion")
+    @Column(name = "fechaCreacion", nullable = false)
     private LocalDate fechaCreacion;
 
     public int getIdPlato() {
