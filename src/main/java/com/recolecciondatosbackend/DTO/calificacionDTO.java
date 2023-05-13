@@ -1,16 +1,15 @@
-package com.recolecciondatosbackend.modelos;
+package com.recolecciondatosbackend.DTO;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
-@Entity
-@Table(name = "calificacion")
-public class Calificacion {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_calificacion", nullable = false)
+public class calificacionDTO {
+
+
     private int idCalificacion;
 
-    @Column(name = "Nombre", nullable = false)
     private String nombre;
 
     public int getIdCalificacion() {
@@ -29,11 +28,11 @@ public class Calificacion {
         this.nombre = nombre;
     }
 
-    public Calificacion() {
-    }
-
-    public Calificacion(int idCalificacion, String nombre) {
+    public calificacionDTO(int idCalificacion, String nombre) {
         this.idCalificacion = idCalificacion;
         this.nombre = nombre;
+    }
+
+    public calificacionDTO() {
     }
 }
