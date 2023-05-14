@@ -10,7 +10,7 @@ import java.time.LocalDate;
 public class comparacionPlatoDTO {
 
     private int idPlatoUAO;
-    private int idPlatoCompetencia;
+    private PlatoCompetencia platoCompetencia;
     private int idPeriodo;
     private LocalDate fechaComparacion;
     private String responsableProceso;
@@ -24,12 +24,12 @@ public class comparacionPlatoDTO {
         this.idPlatoUAO = idPlatoUAO;
     }
 
-    public int getIdPlatoCompetencia() {
-        return idPlatoCompetencia;
+    public PlatoCompetencia getPlatoCompetencia() {
+        return platoCompetencia;
     }
 
-    public void setIdPlatoCompetencia(int idPlatoCompetencia) {
-        this.idPlatoCompetencia = idPlatoCompetencia;
+    public void setPlatoCompetencia(PlatoCompetencia platoCompetencia) {
+        this.platoCompetencia = platoCompetencia;
     }
 
     public int getIdPeriodo() {
@@ -67,9 +67,9 @@ public class comparacionPlatoDTO {
     public comparacionPlatoDTO() {
     }
 
-    public comparacionPlatoDTO(int idPlatoUAO, int idPlatoCompetencia, int idPeriodo, LocalDate fechaComparacion, String responsableProceso, String responsableCargue) {
+    public comparacionPlatoDTO(int idPlatoUAO, PlatoCompetencia platoCompetencia, int idPeriodo, LocalDate fechaComparacion, String responsableProceso, String responsableCargue) {
         this.idPlatoUAO = idPlatoUAO;
-        this.idPlatoCompetencia = idPlatoCompetencia;
+        this.platoCompetencia = platoCompetencia;
         this.idPeriodo = idPeriodo;
         this.fechaComparacion = fechaComparacion;
         this.responsableProceso = responsableProceso;
