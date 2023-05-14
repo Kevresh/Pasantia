@@ -4,7 +4,9 @@ import com.recolecciondatosbackend.DTO.platoBasicoDTO;
 import com.recolecciondatosbackend.DTO.platoDTO;
 import com.recolecciondatosbackend.Servicios.PlatoService;
 import com.recolecciondatosbackend.Servicios.RestauranteService;
+import com.recolecciondatosbackend.Servicios.periodoService;
 import com.recolecciondatosbackend.excepciones.ResourceNotFoundException;
+import com.recolecciondatosbackend.modelos.Periodo;
 import com.recolecciondatosbackend.modelos.Plato;
 import com.recolecciondatosbackend.modelos.Restaurante;
 import com.recolecciondatosbackend.repositorios.PlatoRepository;
@@ -30,11 +32,15 @@ public class PlatoServiceImpl implements PlatoService {
     @Autowired
     private RestauranteService restauranteService;
 
+    @Autowired
+    private periodoService PeriodoService;
+
     @Override
     public ResponseEntity<?> crearPlato(platoBasicoDTO PlatoBasicoDTO) {
         try{
             Restaurante restaurante = restauranteService.getRestauranteById(PlatoBasicoDTO.getIdRestaurante());
-            Plato plato = new Plato(restaurante,PlatoBasicoDTO.getNombre(), PlatoBasicoDTO.getPrecio(), PlatoBasicoDTO.getFechaCreacion());
+            Periodo periodo = PeriodoService.getPeriodoById(PlatoBasicoDTO.getIdPeriodo());
+            Plato plato = new Plato(restaurante, periodo, PlatoBasicoDTO.getNombre(), PlatoBasicoDTO.getPrecio(), PlatoBasicoDTO.getFechaCreacion());
             platoRepository.save(plato);
             return ResponseEntity.status(HttpStatus.CREATED).body("El plato " + plato.getNombre() + " ha sido creado correctamente.");
         }catch (Exception e){

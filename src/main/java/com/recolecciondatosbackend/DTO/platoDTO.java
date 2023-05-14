@@ -14,11 +14,21 @@ public class platoDTO implements Serializable {
     @JsonIgnore
     private Restaurante restaurante;
 
+    private int idPeriodo;
+
     private String nombre;
 
     private int precio;
 
     private LocalDate fechaCreacion;
+
+    public int getIdPeriodo() {
+        return idPeriodo;
+    }
+
+    public void setIdPeriodo(int idPeriodo) {
+        this.idPeriodo = idPeriodo;
+    }
 
     public int getIdPlato() {
         return idPlato;
@@ -60,8 +70,9 @@ public class platoDTO implements Serializable {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public platoDTO(int idPlato, String nombre, int precio, LocalDate fechaCreacion) {
+    public platoDTO(int idPlato, int idPeriodo, String nombre, int precio, LocalDate fechaCreacion) {
         this.idPlato = idPlato;
+        this.idPeriodo = idPeriodo;
         this.nombre = nombre;
         this.precio = precio;
         this.fechaCreacion = fechaCreacion;

@@ -9,11 +9,21 @@ public class platoBasicoDTO {
 
     private int idRestaurante;
 
+    private int idPeriodo;
+
     private String nombre;
 
     private int precio;
 
     private LocalDate fechaCreacion;
+
+    public int getIdPeriodo() {
+        return idPeriodo;
+    }
+
+    public void setIdPeriodo(int idPeriodo) {
+        this.idPeriodo = idPeriodo;
+    }
 
     public int getIdRestaurante() {
         return idRestaurante;
@@ -50,8 +60,9 @@ public class platoBasicoDTO {
     public platoBasicoDTO() {
     }
 
-    public platoBasicoDTO(int idRestaurante, String nombre, int precio, LocalDate fechaCreacion) {
+    public platoBasicoDTO(int idRestaurante, int idPeriodo, String nombre, int precio, LocalDate fechaCreacion) {
         this.idRestaurante = idRestaurante;
+        this.idPeriodo = idPeriodo;
         this.nombre = nombre;
         this.precio = precio;
         this.fechaCreacion = fechaCreacion;

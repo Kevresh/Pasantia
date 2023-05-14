@@ -37,7 +37,8 @@ public class ComparacionPlatoServiceImpl implements ComparacionPlatoService {
             PlatoCompetencia platoCompetencia = platoCompetenciaService.getPlatoCompetenciaById(ComparacionPlatoDTO.getIdPlatoCompetencia());
             Periodo periodo = PeriodoService.getPeriodoById(ComparacionPlatoDTO.getIdPeriodo());
             ComparacionPlato comparacionPlato = new ComparacionPlato(platoUAO, platoCompetencia, periodo, ComparacionPlatoDTO.getFechaComparacion(), ComparacionPlatoDTO.getResponsableProceso(), ComparacionPlatoDTO.getResponsableCargue());
-            return ResponseEntity.ok().body(comparacionPlatoRepository.save(comparacionPlato));
+            comparacionPlatoRepository.save(comparacionPlato);
+            return ResponseEntity.status(HttpStatus.CREATED).body("La comparacion entre los platos " + comparacionPlato.getPlatoUAO().getNombre() + " y " + comparacionPlato.getPlatoCompetencia().getNombre() + " fue creada con exito");
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Ocurrió un error guardando la comparación de los platos");
