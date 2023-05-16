@@ -2,7 +2,9 @@ package com.recolecciondatosbackend.ServiciosImpl;
 
 import com.recolecciondatosbackend.DTO.detalleEvaluacionDTO;
 import com.recolecciondatosbackend.Servicios.DetalleEvaluacionService;
+import com.recolecciondatosbackend.Servicios.EvCalidadService;
 import com.recolecciondatosbackend.modelos.DetalleEvaluacion;
+import com.recolecciondatosbackend.modelos.EvCalidad;
 import com.recolecciondatosbackend.modelos.LlavesCompuestass.DetalleEvaluacionPK;
 import com.recolecciondatosbackend.repositorios.DetalleEvaluacionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +12,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -18,12 +19,18 @@ public class DetalleEvaluacionServiceImpl implements DetalleEvaluacionService {
 
     @Autowired
     DetalleEvaluacionRepository detalleEvaluacionRepository;
+
+    @Autowired
+    EvCalidadService evCalidadService;
+
     @Override
     public ResponseEntity<?> crearDetalleEvaluacion(List<detalleEvaluacionDTO> DetallesEvaluacionesDTO) {
         try{
+            EvCalidad evCalidad = DetallesEvaluacionesDTO.get(0).getEvCalidad();
+            evCalidadService.crearEvCalidad(evCalidad);
             for (detalleEvaluacionDTO detalleEvaluacionDTO : DetallesEvaluacionesDTO) {
                 DetalleEvaluacion detalleEvaluacion = new DetalleEvaluacion();
-                detalleEvaluacion.setId(new DetalleEvaluacionPK(detalleEvaluacionDTO.getIdArea(), detalleEvaluacionDTO.getIdPregunta(), detalleEvaluacionDTO.getIdCalificacion(), detalleEvaluacionDTO.getIdEvCalidad()));
+                detalleEvaluacion.setId(new DetalleEvaluacionPK(detalleEvaluacionDTO.getIdArea(), detalleEvaluacionDTO.getIdPregunta(), detalleEvaluacionDTO.getIdCalificacion(), evCalidad.getIdEvaluacion()));
                 detalleEvaluacion.setObservaciones(detalleEvaluacionDTO.getObservaciones());
                 detalleEvaluacionRepository.save(detalleEvaluacion);
             }
