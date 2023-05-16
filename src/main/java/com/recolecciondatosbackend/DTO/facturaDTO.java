@@ -1,24 +1,14 @@
 package com.recolecciondatosbackend.DTO;
 
-import com.recolecciondatosbackend.modelos.Contrato;
-import com.recolecciondatosbackend.modelos.Periodo;
-import com.recolecciondatosbackend.modelos.Servicio;
-import jakarta.persistence.*;
-
 import java.time.LocalDate;
 
 public class facturaDTO {
 
     private int idFactura;
-
-    private Contrato contrato;
-
-    private Periodo periodo;
-
-    private Servicio servicio;
-
+    private contratoDTO contrato;
+    private int idPeriodo;
+    private servicioDTO servicio;
     private LocalDate fecha;
-
     private int ordenServicio;
 
     public int getIdFactura() {
@@ -29,27 +19,27 @@ public class facturaDTO {
         this.idFactura = idFactura;
     }
 
-    public Contrato getContrato() {
+    public contratoDTO getContrato() {
         return contrato;
     }
 
-    public void setContrato(Contrato contrato) {
+    public void setContrato(contratoDTO contrato) {
         this.contrato = contrato;
     }
 
-    public Periodo getPeriodo() {
-        return periodo;
+    public int getIdPeriodo() {
+        return idPeriodo;
     }
 
-    public void setPeriodo(Periodo periodo) {
-        this.periodo = periodo;
+    public void setIdPeriodo(int idPeriodo) {
+        this.idPeriodo = idPeriodo;
     }
 
-    public Servicio getServicio() {
+    public servicioDTO getServicio() {
         return servicio;
     }
 
-    public void setServicio(Servicio servicio) {
+    public void setServicio(servicioDTO servicio) {
         this.servicio = servicio;
     }
 
@@ -69,10 +59,10 @@ public class facturaDTO {
         this.ordenServicio = ordenServicio;
     }
 
-    public facturaDTO(int idFactura, Contrato contrato, Periodo periodo, Servicio servicio, LocalDate fecha, int ordenServicio) {
+    public facturaDTO(int idFactura, contratoDTO contrato, int idPeriodo, servicioDTO servicio, LocalDate fecha, int ordenServicio) {
         this.idFactura = idFactura;
         this.contrato = contrato;
-        this.periodo = periodo;
+        this.idPeriodo = idPeriodo;
         this.servicio = servicio;
         this.fecha = fecha;
         this.ordenServicio = ordenServicio;

@@ -7,6 +7,8 @@ import com.recolecciondatosbackend.repositorios.ProveedorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProveedorServiceImpl implements ProveedorService {
 
@@ -16,5 +18,10 @@ public class ProveedorServiceImpl implements ProveedorService {
     public Proveedor getProveedorById(int id) {
         return proveedorRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el proveedor con el id " + id));
+    }
+
+    @Override
+    public List<Proveedor> obtenerProveedores() {
+        return proveedorRepository.findAll();
     }
 }

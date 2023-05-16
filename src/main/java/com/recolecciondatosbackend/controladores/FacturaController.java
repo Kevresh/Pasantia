@@ -18,8 +18,7 @@ public class FacturaController {
 
     @PostMapping("/crearRegistroCompetetividadValorGenerado")
     public ResponseEntity<?> crearRegistroCompetetividadValorGenerado(@RequestBody facturaDTO FacturaDTO) {
-        Factura factura = new Factura(FacturaDTO.getIdFactura(), FacturaDTO.getContrato(), FacturaDTO.getPeriodo(), FacturaDTO.getServicio(), FacturaDTO.getFecha(), FacturaDTO.getOrdenServicio());
-        return facturaService.crearRegistroCompetetividadValorGenerado(factura);
+        return facturaService.crearRegistroCompetetividadValorGenerado(FacturaDTO);
     }
 
 }
