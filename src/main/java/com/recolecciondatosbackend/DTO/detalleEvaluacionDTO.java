@@ -1,5 +1,7 @@
 package com.recolecciondatosbackend.DTO;
 
+import com.recolecciondatosbackend.modelos.EvCalidad;
+
 import java.io.Serializable;
 
 public class detalleEvaluacionDTO implements Serializable {
@@ -10,7 +12,7 @@ public class detalleEvaluacionDTO implements Serializable {
 
     private int idPregunta;
 
-    private int idEvCalidad;
+    private EvCalidad evCalidad;
 
     private String observaciones;
 
@@ -22,12 +24,12 @@ public class detalleEvaluacionDTO implements Serializable {
         this.idArea = idArea;
     }
 
-    public int getIdEvCalidad() {
-        return idEvCalidad;
+    public EvCalidad getEvCalidad() {
+        return evCalidad;
     }
 
-    public void setIdEvCalidad(int idEvCalidad) {
-        this.idEvCalidad = idEvCalidad;
+    public void setEvCalidad(EvCalidad evCalidad) {
+        this.evCalidad = evCalidad;
     }
 
     public int getIdCalificacion() {
@@ -57,11 +59,11 @@ public class detalleEvaluacionDTO implements Serializable {
     public detalleEvaluacionDTO() {
     }
 
-    public detalleEvaluacionDTO(int idArea, int idCalificacion, int idPregunta, int idEvCalidad, String observaciones) {
+    public detalleEvaluacionDTO(int idArea, int idCalificacion, int idPregunta, EvCalidad evCalidad, String observaciones) {
         this.idArea = idArea;
         this.idCalificacion = idCalificacion;
         this.idPregunta = idPregunta;
-        this.idEvCalidad = idEvCalidad;
+        this.evCalidad = evCalidad;
         this.observaciones = observaciones;
     }
 }
