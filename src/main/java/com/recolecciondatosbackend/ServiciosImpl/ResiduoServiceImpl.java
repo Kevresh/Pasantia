@@ -1,6 +1,7 @@
 package com.recolecciondatosbackend.ServiciosImpl;
 
 import com.recolecciondatosbackend.Servicios.ResiduoService;
+import com.recolecciondatosbackend.excepciones.ResourceNotFoundException;
 import com.recolecciondatosbackend.modelos.Residuo;
 import com.recolecciondatosbackend.repositorios.ResiduoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,5 +18,11 @@ public class ResiduoServiceImpl implements ResiduoService {
     @Override
     public List<Residuo> obtenerResiduos() {
         return residuoRepository.findAll();
+    }
+
+    @Override
+    public Residuo getResiduoById(int id) {
+        return residuoRepository.findById(id).
+                orElseThrow(() -> new ResourceNotFoundException("No existe el residuo con el id " + id));
     }
 }

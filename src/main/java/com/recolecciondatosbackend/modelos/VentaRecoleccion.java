@@ -88,8 +88,7 @@ public class VentaRecoleccion {
         this.responsableProceso = responsableProceso;
     }
 
-    public VentaRecoleccion(int idVentaRecoleccion, Residuo residuo, LocalDate fechaFactura, double totalKg, double valorUnitario, String responsableCarga, String responsableProceso) {
-        this.idVentaRecoleccion = idVentaRecoleccion;
+    public VentaRecoleccion(Residuo residuo, LocalDate fechaFactura, double totalKg, double valorUnitario, String responsableCarga, String responsableProceso) {
         this.residuo = residuo;
         this.fechaFactura = fechaFactura;
         this.totalKg = totalKg;

@@ -6,4 +6,7 @@ import java.util.List;
 
 public interface ResiduoService {
     List<Residuo> obtenerResiduos();
+
+    Residuo getResiduoById(int id);
+
 }
