@@ -8,6 +8,8 @@ import com.recolecciondatosbackend.repositorios.ServicioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ServicioServiceImpl implements ServicioService {
 
@@ -23,5 +25,10 @@ public class ServicioServiceImpl implements ServicioService {
     public Servicio getServicioById(int id) {
         return servicioRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el periodo con el id " + id));
+    }
+
+    @Override
+    public List<Servicio> obtenerServicios() {
+        return servicioRepository.findAll();
     }
 }
