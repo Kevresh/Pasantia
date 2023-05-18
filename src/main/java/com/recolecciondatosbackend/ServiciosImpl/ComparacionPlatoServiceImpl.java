@@ -4,7 +4,6 @@ import com.recolecciondatosbackend.DTO.comparacionPlatoDTO;
 import com.recolecciondatosbackend.Servicios.ComparacionPlatoService;
 import com.recolecciondatosbackend.Servicios.PlatoCompetenciaService;
 import com.recolecciondatosbackend.Servicios.PlatoService;
-import com.recolecciondatosbackend.Servicios.periodoService;
 import com.recolecciondatosbackend.modelos.ComparacionPlato;
 import com.recolecciondatosbackend.modelos.Periodo;
 import com.recolecciondatosbackend.modelos.Plato;
@@ -32,7 +31,7 @@ public class ComparacionPlatoServiceImpl implements ComparacionPlatoService {
     private PlatoCompetenciaRepository platoCompetenciaRepository;
 
     @Autowired
-    private periodoService PeriodoService;
+    private com.recolecciondatosbackend.Servicios.PeriodoService PeriodoService;
 
     @Override
     public ResponseEntity<?> crearComparacion(comparacionPlatoDTO ComparacionPlatoDTO) {

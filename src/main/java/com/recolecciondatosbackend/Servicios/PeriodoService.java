@@ -1,12 +1,11 @@
 package com.recolecciondatosbackend.Servicios;
 
 import com.recolecciondatosbackend.DTO.periodoDTO;
-import com.recolecciondatosbackend.DTO.restauranteBasicoDTO;
 import com.recolecciondatosbackend.modelos.Periodo;
 
 import java.util.List;
 
-public interface periodoService {
+public interface PeriodoService {
     List<periodoDTO> obtenerPeriodo();
 
     Periodo getPeriodoById(int id);

@@ -4,7 +4,6 @@ import com.recolecciondatosbackend.DTO.platoBasicoDTO;
 import com.recolecciondatosbackend.DTO.platoDTO;
 import com.recolecciondatosbackend.Servicios.PlatoService;
 import com.recolecciondatosbackend.Servicios.RestauranteService;
-import com.recolecciondatosbackend.Servicios.periodoService;
 import com.recolecciondatosbackend.excepciones.ResourceNotFoundException;
 import com.recolecciondatosbackend.modelos.Periodo;
 import com.recolecciondatosbackend.modelos.Plato;
@@ -15,10 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.*;
 
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -34,7 +31,7 @@ public class PlatoServiceImpl implements PlatoService {
     private RestauranteService restauranteService;
 
     @Autowired
-    private periodoService PeriodoService;
+    private com.recolecciondatosbackend.Servicios.PeriodoService PeriodoService;
 
     @Override
     public ResponseEntity<?> crearPlato(platoBasicoDTO PlatoBasicoDTO) {

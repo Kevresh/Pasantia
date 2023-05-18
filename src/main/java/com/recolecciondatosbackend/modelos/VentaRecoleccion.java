@@ -15,7 +15,7 @@ public class VentaRecoleccion {
 
     @ManyToOne
     @JoinColumn(name = "idResiduo", nullable = false)
-    private Residuo residuo;
+    private Material material;
 
     @Column(name="fechaFactura", nullable = false)
     private LocalDate fechaFactura;
@@ -40,12 +40,12 @@ public class VentaRecoleccion {
         this.idVentaRecoleccion = idVentaRecoleccion;
     }
 
-    public Residuo getResiduo() {
-        return residuo;
+    public Material getResiduo() {
+        return material;
     }
 
-    public void setResiduo(Residuo residuo) {
-        this.residuo = residuo;
+    public void setResiduo(Material material) {
+        this.material = material;
     }
 
     public LocalDate getFechaFactura() {
@@ -88,8 +88,8 @@ public class VentaRecoleccion {
         this.responsableProceso = responsableProceso;
     }
 
-    public VentaRecoleccion(Residuo residuo, LocalDate fechaFactura, double totalKg, double valorUnitario, String responsableCarga, String responsableProceso) {
-        this.residuo = residuo;
+    public VentaRecoleccion(Material material, LocalDate fechaFactura, double totalKg, double valorUnitario, String responsableCarga, String responsableProceso) {
+        this.material = material;
         this.fechaFactura = fechaFactura;
         this.totalKg = totalKg;
         this.valorUnitario = valorUnitario;

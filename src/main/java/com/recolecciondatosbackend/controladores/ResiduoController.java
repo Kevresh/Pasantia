@@ -1,8 +1,7 @@
 package com.recolecciondatosbackend.controladores;
 
-import com.recolecciondatosbackend.DTO.restauranteBasicoDTO;
-import com.recolecciondatosbackend.Servicios.ResiduoService;
-import com.recolecciondatosbackend.modelos.Residuo;
+import com.recolecciondatosbackend.Servicios.MaterialService;
+import com.recolecciondatosbackend.modelos.Material;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,13 +18,13 @@ import java.util.List;
 public class ResiduoController {
 
     @Autowired
-    ResiduoService residuoService;
+    MaterialService materialService;
 
     @GetMapping("/obtenerResiduos")
     public ResponseEntity<?> obtenerResiduos(){
         try {
-            List<Residuo> residuos = residuoService.obtenerResiduos();
-            return ResponseEntity.ok(residuos);
+            List<Material> materials = materialService.obtenerResiduos();
+            return ResponseEntity.ok(materials);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Error obteniendo los residuos");

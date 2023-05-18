@@ -1,7 +1,6 @@
 package com.recolecciondatosbackend.controladores;
 
 import com.recolecciondatosbackend.DTO.periodoDTO;
-import com.recolecciondatosbackend.Servicios.periodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +17,7 @@ import java.util.List;
 public class PeriodoController {
 
     @Autowired
-    private periodoService PeriodoService;
+    private com.recolecciondatosbackend.Servicios.PeriodoService PeriodoService;
 
 
     @GetMapping("/getPeriodos")

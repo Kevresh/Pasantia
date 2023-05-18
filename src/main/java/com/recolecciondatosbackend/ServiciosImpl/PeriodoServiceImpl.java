@@ -1,11 +1,9 @@
 package com.recolecciondatosbackend.ServiciosImpl;
 
 import com.recolecciondatosbackend.DTO.periodoDTO;
-import com.recolecciondatosbackend.DTO.restauranteBasicoDTO;
-import com.recolecciondatosbackend.Servicios.periodoService;
+import com.recolecciondatosbackend.Servicios.PeriodoService;
 import com.recolecciondatosbackend.excepciones.ResourceNotFoundException;
 import com.recolecciondatosbackend.modelos.Periodo;
-import com.recolecciondatosbackend.modelos.Restaurante;
 import com.recolecciondatosbackend.repositorios.PeriodoRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class PeriodoServiceImpl implements periodoService {
+public class PeriodoServiceImpl implements PeriodoService {
 
     @Autowired
     PeriodoRepository periodoRepository;

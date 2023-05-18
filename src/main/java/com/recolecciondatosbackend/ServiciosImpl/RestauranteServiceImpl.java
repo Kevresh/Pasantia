@@ -4,9 +4,7 @@ import com.recolecciondatosbackend.DTO.platoDTO;
 import com.recolecciondatosbackend.DTO.restauranteBasicoDTO;
 import com.recolecciondatosbackend.DTO.restauranteDTO;
 import com.recolecciondatosbackend.Servicios.RestauranteService;
-import com.recolecciondatosbackend.Servicios.periodoService;
 import com.recolecciondatosbackend.excepciones.ResourceNotFoundException;
-import com.recolecciondatosbackend.modelos.Periodo;
 import com.recolecciondatosbackend.modelos.Plato;
 import com.recolecciondatosbackend.modelos.Restaurante;
 import com.recolecciondatosbackend.repositorios.PlatoRepository;
@@ -29,7 +27,7 @@ public class RestauranteServiceImpl implements RestauranteService {
     RestauranteRepository restauranteRepository;
 
     @Autowired
-    periodoService PeriodoService;
+    com.recolecciondatosbackend.Servicios.PeriodoService PeriodoService;
 
     @Autowired
     PlatoRepository platoRepository;

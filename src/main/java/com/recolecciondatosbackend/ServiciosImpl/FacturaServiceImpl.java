@@ -17,7 +17,7 @@ public class FacturaServiceImpl implements FacturaService {
     ServicioService servicioService;
 
     @Autowired
-    periodoService PeriodoService;
+    com.recolecciondatosbackend.Servicios.PeriodoService PeriodoService;
 
     @Autowired
     FacturaRepository facturaRepository;
