@@ -26,7 +26,7 @@ public class RecoleccionServiceImpl implements RecoleccionService {
                 RecoleccionDTO.getFecha(),
                 RecoleccionDTO.getResponsableProceso(),
                 RecoleccionDTO.getResponsableCargue(),
-                RecoleccionDTO.getNoFacturaVenta());
+                RecoleccionDTO.getNumeroFacturaVenta());
         return recoleccionRepository.save(recoleccion);
     }
 }

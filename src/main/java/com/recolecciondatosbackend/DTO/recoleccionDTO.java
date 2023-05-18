@@ -15,7 +15,7 @@ public class recoleccionDTO {
 
     private String responsableCargue;
 
-    private String NoFacturaVenta;
+    private String numeroFacturaVenta;
 
     public int getIdRecoleccion() {
         return idRecoleccion;
@@ -57,21 +57,21 @@ public class recoleccionDTO {
         this.responsableCargue = responsableCargue;
     }
 
-    public String getNoFacturaVenta() {
-        return NoFacturaVenta;
+    public String getNumeroFacturaVenta() {
+        return numeroFacturaVenta;
     }
 
-    public void setNoFacturaVenta(String noFacturaVenta) {
-        NoFacturaVenta = noFacturaVenta;
+    public void setNumeroFacturaVenta(String numeroFacturaVenta) {
+        this.numeroFacturaVenta = numeroFacturaVenta;
     }
 
-    public recoleccionDTO(int idRecoleccion, int idPeriodo, LocalDate fecha, String responsableProceso, String responsableCargue, String noFacturaVenta) {
+    public recoleccionDTO(int idRecoleccion, int idPeriodo, LocalDate fecha, String responsableProceso, String responsableCargue, String numeroFacturaVenta) {
         this.idRecoleccion = idRecoleccion;
         this.idPeriodo = idPeriodo;
         this.fecha = fecha;
         this.responsableProceso = responsableProceso;
         this.responsableCargue = responsableCargue;
-        NoFacturaVenta = noFacturaVenta;
+        this.numeroFacturaVenta = numeroFacturaVenta;
     }
 
     public recoleccionDTO() {

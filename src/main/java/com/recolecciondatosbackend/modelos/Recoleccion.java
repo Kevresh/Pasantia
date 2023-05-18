@@ -26,7 +26,7 @@ public class Recoleccion {
     private String responsableCargue;
 
     @Column(name = "NoFacturaVenta", nullable = false)
-    private String NoFacturaVenta;
+    private String numeroFacturaVenta;
 
     public int getIdRecoleccion() {
         return idRecoleccion;
@@ -68,20 +68,20 @@ public class Recoleccion {
         this.responsableCargue = responsableCargue;
     }
 
-    public String getNoFacturaVenta() {
-        return NoFacturaVenta;
+    public String getNumeroFacturaVenta() {
+        return numeroFacturaVenta;
     }
 
-    public void setNoFacturaVenta(String noFacturaVenta) {
-        NoFacturaVenta = noFacturaVenta;
+    public void setNumeroFacturaVenta(String numeroFacturaVenta) {
+        this.numeroFacturaVenta = numeroFacturaVenta;
     }
 
-    public Recoleccion(Periodo periodo, LocalDate fecha, String responsableProceso, String responsableCargue, String noFacturaVenta) {
+    public Recoleccion(Periodo periodo, LocalDate fecha, String responsableProceso, String responsableCargue, String numeroFacturaVenta) {
         this.periodo = periodo;
         this.fecha = fecha;
         this.responsableProceso = responsableProceso;
         this.responsableCargue = responsableCargue;
-        NoFacturaVenta = noFacturaVenta;
+        this.numeroFacturaVenta = numeroFacturaVenta;
     }
 
     public Recoleccion() {

@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "detalleRecoleccion")
-public class DetallerRecoleccion {
+public class DetalleRecoleccion {
 
     @EmbeddedId
     private DetalleRecoleccionPK id;
@@ -64,7 +64,7 @@ public class DetallerRecoleccion {
         this.valorUnidad = valorUnidad;
     }
 
-    public DetallerRecoleccion(DetalleRecoleccionPK id, Recoleccion recoleccion, Material material, double cantidad, double valorUnidad) {
+    public DetalleRecoleccion(DetalleRecoleccionPK id, Recoleccion recoleccion, Material material, double cantidad, double valorUnidad) {
         this.id = id;
         this.recoleccion = recoleccion;
         this.material = material;
@@ -72,6 +72,6 @@ public class DetallerRecoleccion {
         this.valorUnidad = valorUnidad;
     }
 
-    public DetallerRecoleccion() {
+    public DetalleRecoleccion() {
     }
 }
