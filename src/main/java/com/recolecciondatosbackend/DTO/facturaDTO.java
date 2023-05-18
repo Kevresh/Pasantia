@@ -1,15 +1,29 @@
 package com.recolecciondatosbackend.DTO;
 
+import com.recolecciondatosbackend.modelos.Periodo;
+import com.recolecciondatosbackend.modelos.Proveedor;
+import com.recolecciondatosbackend.modelos.Servicio;
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
 public class facturaDTO {
 
     private int idFactura;
-    private contratoDTO contrato;
+
+    private int idProveedor;
+
     private int idPeriodo;
-    private servicioDTO servicio;
-    private LocalDate fecha;
+
+    private int idServicio;
+
+    private LocalDate fechaFacturacion;
+
     private int ordenServicio;
+
+    private LocalDate fechaCargue;
+
+    private int cobro;
 
     public int getIdFactura() {
         return idFactura;
@@ -19,12 +33,12 @@ public class facturaDTO {
         this.idFactura = idFactura;
     }
 
-    public contratoDTO getContrato() {
-        return contrato;
+    public int getIdProveedor() {
+        return idProveedor;
     }
 
-    public void setContrato(contratoDTO contrato) {
-        this.contrato = contrato;
+    public void setIdProveedor(int idProveedor) {
+        this.idProveedor = idProveedor;
     }
 
     public int getIdPeriodo() {
@@ -35,20 +49,20 @@ public class facturaDTO {
         this.idPeriodo = idPeriodo;
     }
 
-    public servicioDTO getServicio() {
-        return servicio;
+    public int getIdServicio() {
+        return idServicio;
     }
 
-    public void setServicio(servicioDTO servicio) {
-        this.servicio = servicio;
+    public void setIdServicio(int idServicio) {
+        this.idServicio = idServicio;
     }
 
-    public LocalDate getFecha() {
-        return fecha;
+    public LocalDate getFechaFacturacion() {
+        return fechaFacturacion;
     }
 
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
+    public void setFechaFacturacion(LocalDate fechaFacturacion) {
+        this.fechaFacturacion = fechaFacturacion;
     }
 
     public int getOrdenServicio() {
@@ -59,13 +73,31 @@ public class facturaDTO {
         this.ordenServicio = ordenServicio;
     }
 
-    public facturaDTO(int idFactura, contratoDTO contrato, int idPeriodo, servicioDTO servicio, LocalDate fecha, int ordenServicio) {
+    public LocalDate getFechaCargue() {
+        return fechaCargue;
+    }
+
+    public void setFechaCargue(LocalDate fechaCargue) {
+        this.fechaCargue = fechaCargue;
+    }
+
+    public int getCobro() {
+        return cobro;
+    }
+
+    public void setCobro(int cobro) {
+        this.cobro = cobro;
+    }
+
+    public facturaDTO(int idFactura, int idProveedor, int idPeriodo, int idServicio, LocalDate fechaFacturacion, int ordenServicio, LocalDate fechaCargue, int cobro) {
         this.idFactura = idFactura;
-        this.contrato = contrato;
+        this.idProveedor = idProveedor;
         this.idPeriodo = idPeriodo;
-        this.servicio = servicio;
-        this.fecha = fecha;
+        this.idServicio = idServicio;
+        this.fechaFacturacion = fechaFacturacion;
         this.ordenServicio = ordenServicio;
+        this.fechaCargue = fechaCargue;
+        this.cobro = cobro;
     }
 
     public facturaDTO() {

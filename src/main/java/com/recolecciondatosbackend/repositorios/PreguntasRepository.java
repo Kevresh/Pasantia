@@ -12,5 +12,5 @@ public interface PreguntasRepository extends JpaRepository<Preguntas, Integer> {
 
     List<Preguntas> findAllByArea(Areas areas);
 
-
+    List<Preguntas> findByAreaIdArea(int areaId);
 }

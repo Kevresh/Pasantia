@@ -10,15 +10,10 @@ public class Servicio {
     @Column(name = "idServicio")
     private int idServicio;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idProveedor", nullable = false)
-    private Proveedor proveedor;
 
-     @Column(name = "tipoServicio", nullable = false)
-    private String tipoServicio;
+     @Column(name = "nombre", nullable = false)
+    private String Nombre;
 
-     @Column(name = "cobro", nullable = false)
-    private Integer cobro;
 
     public int getIdServicio() {
         return idServicio;
@@ -28,35 +23,18 @@ public class Servicio {
         this.idServicio = idServicio;
     }
 
-    public Proveedor getProveedor() {
-        return proveedor;
+
+    public String getNombre() {
+        return Nombre;
     }
 
-    public void setProveedor(Proveedor proveedor) {
-        this.proveedor = proveedor;
+    public void setNombre(String nombre) {
+        Nombre = nombre;
     }
 
-    public String getTipoServicio() {
-        return tipoServicio;
-    }
-
-    public void setTipoServicio(String tipoServicio) {
-        this.tipoServicio = tipoServicio;
-    }
-
-    public Integer getCobro() {
-        return cobro;
-    }
-
-    public void setCobro(Integer cobro) {
-        this.cobro = cobro;
-    }
-
-    public Servicio(int idServicio, Proveedor proveedor, String tipoServicio, Integer cobro) {
+    public Servicio(int idServicio, String nombre) {
         this.idServicio = idServicio;
-        this.proveedor = proveedor;
-        this.tipoServicio = tipoServicio;
-        this.cobro = cobro;
+        Nombre = nombre;
     }
 
     public Servicio() {
