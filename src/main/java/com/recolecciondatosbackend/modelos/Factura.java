@@ -28,8 +28,8 @@ public class Factura {
     @Column(name="fechaFacturacion", nullable = false)
     private LocalDate fechaFacturacion;
 
-    @Column(name = "ordenServicio", nullable = false)
-    private int ordenServicio;
+    @Column(name = "NumeroFactura", nullable = false)
+    private String NumeroFactura;
 
     @Column(name="fechaCargue", nullable = false)
     private LocalDate fechaCargue;
@@ -77,12 +77,12 @@ public class Factura {
         this.fechaFacturacion = fechaFacturacion;
     }
 
-    public int getOrdenServicio() {
-        return ordenServicio;
+    public String getNumeroFactura() {
+        return NumeroFactura;
     }
 
-    public void setOrdenServicio(int ordenServicio) {
-        this.ordenServicio = ordenServicio;
+    public void setNumeroFactura(String numeroFactura) {
+        NumeroFactura = numeroFactura;
     }
 
     public LocalDate getFechaCargue() {
@@ -101,12 +101,12 @@ public class Factura {
         this.cobro = cobro;
     }
 
-    public Factura(Proveedor proveedor, Periodo periodo, Servicio servicio, LocalDate fechaFacturacion, int ordenServicio, LocalDate fechaCargue, int cobro) {
+    public Factura(Proveedor proveedor, Periodo periodo, Servicio servicio, LocalDate fechaFacturacion, String NumeroFactura, LocalDate fechaCargue, int cobro) {
         this.proveedor = proveedor;
         this.periodo = periodo;
         this.servicio = servicio;
         this.fechaFacturacion = fechaFacturacion;
-        this.ordenServicio = ordenServicio;
+        this.NumeroFactura = NumeroFactura;
         this.fechaCargue = fechaCargue;
         this.cobro = cobro;
     }

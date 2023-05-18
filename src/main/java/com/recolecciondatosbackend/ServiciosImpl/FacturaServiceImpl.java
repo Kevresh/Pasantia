@@ -41,7 +41,7 @@ public class FacturaServiceImpl implements FacturaService {
             factura.setProveedor(proveedor);
             factura.setPeriodo(periodo);
             factura.setServicio(servicio);
-            factura.setOrdenServicio(FacturaDTO.getOrdenServicio());
+            factura.setNumeroFactura(FacturaDTO.getNumeroFactura());
 
             facturaRepository.save(factura);
 

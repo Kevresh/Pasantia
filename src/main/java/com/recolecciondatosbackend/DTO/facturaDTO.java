@@ -1,10 +1,5 @@
 package com.recolecciondatosbackend.DTO;
 
-import com.recolecciondatosbackend.modelos.Periodo;
-import com.recolecciondatosbackend.modelos.Proveedor;
-import com.recolecciondatosbackend.modelos.Servicio;
-import jakarta.persistence.*;
-
 import java.time.LocalDate;
 
 public class facturaDTO {
@@ -19,7 +14,7 @@ public class facturaDTO {
 
     private LocalDate fechaFacturacion;
 
-    private int ordenServicio;
+    private String numeroFactura;
 
     private LocalDate fechaCargue;
 
@@ -65,12 +60,12 @@ public class facturaDTO {
         this.fechaFacturacion = fechaFacturacion;
     }
 
-    public int getOrdenServicio() {
-        return ordenServicio;
+    public String getNumeroFactura() {
+        return numeroFactura;
     }
 
-    public void setOrdenServicio(int ordenServicio) {
-        this.ordenServicio = ordenServicio;
+    public void setNumeroFactura(String numeroFactura) {
+        this.numeroFactura = numeroFactura;
     }
 
     public LocalDate getFechaCargue() {
@@ -89,13 +84,13 @@ public class facturaDTO {
         this.cobro = cobro;
     }
 
-    public facturaDTO(int idFactura, int idProveedor, int idPeriodo, int idServicio, LocalDate fechaFacturacion, int ordenServicio, LocalDate fechaCargue, int cobro) {
+    public facturaDTO(int idFactura, int idProveedor, int idPeriodo, int idServicio, LocalDate fechaFacturacion, String numeroFactura, LocalDate fechaCargue, int cobro) {
         this.idFactura = idFactura;
         this.idProveedor = idProveedor;
         this.idPeriodo = idPeriodo;
         this.idServicio = idServicio;
         this.fechaFacturacion = fechaFacturacion;
-        this.ordenServicio = ordenServicio;
+        this.numeroFactura = numeroFactura;
         this.fechaCargue = fechaCargue;
         this.cobro = cobro;
     }
