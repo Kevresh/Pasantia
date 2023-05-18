@@ -1,6 +1,8 @@
 package com.recolecciondatosbackend.controladores;
 
 import com.recolecciondatosbackend.DTO.facturaDTO;
+import com.recolecciondatosbackend.DTO.platoBasicoDTO;
+import com.recolecciondatosbackend.DTO.proveedorDTO;
 import com.recolecciondatosbackend.Servicios.ProveedorService;
 import com.recolecciondatosbackend.modelos.Proveedor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +28,10 @@ public class ProveedorController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Error obteniendo restaurantes " + e);
         }
+    }
+
+    @PostMapping("/crearProveedor")
+    public ResponseEntity<?> crearProveedor(@RequestBody proveedorDTO ProveedorDTO) {
+        return proveedorService.crearProveedor(ProveedorDTO);
     }
 }
