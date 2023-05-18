@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -61,5 +62,19 @@ public class PlatoServiceImpl implements PlatoService {
     public Plato getPlatoById(int id) {
         return platoRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el plato con el id " + id));
+    }
+
+    @Override
+    public ResponseEntity<?> editarPrecioPlatoPorId(int id, int nuevoPrecio) {
+        Optional<Plato> optionalPlato = platoRepository.findById(id);
+        if (optionalPlato.isPresent()) {
+            Plato plato = optionalPlato.get();
+            plato.setPrecio(nuevoPrecio);
+            platoRepository.save(plato);
+
+            return ResponseEntity.ok("El precio del plato " + plato.getNombre() + " ha sido actualizado exitosamente.");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

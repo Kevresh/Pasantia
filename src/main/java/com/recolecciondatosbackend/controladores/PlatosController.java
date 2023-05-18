@@ -34,4 +34,9 @@ public class PlatosController {
                     .body("Error obteniendo platos con restaurantes: " + e.getMessage());
         }
     }
+
+    @PutMapping("/EditarPrecio/{id}/{precio}")
+    public ResponseEntity<?> editarPrecioPlatoPorId(@PathVariable int id, @PathVariable int precio){
+            return platoService.editarPrecioPlatoPorId(id, precio);
+    }
 }

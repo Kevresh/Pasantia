@@ -13,4 +13,6 @@ public interface PlatoService {
     List<platoDTO> obtenerPlatosConRestaurantes();
 
     Plato getPlatoById(int id);
+
+    ResponseEntity<?> editarPrecioPlatoPorId(int id, int nuevoPrecio);
 }

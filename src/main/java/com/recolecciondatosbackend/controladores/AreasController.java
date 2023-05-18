@@ -23,7 +23,7 @@ public class AreasController {
     AreaService areaService;
 
     @GetMapping("/areasConPreguntas")
-    public ResponseEntity<?> getAreaConPreugntas() {
+    public ResponseEntity<?> getAreaConPreguntas() {
         try {
             List<areasDTO> areas = areaService.obtenerAreasConPreguntas();
             return ResponseEntity.ok(areas);
