@@ -34,5 +34,20 @@ public class AreasController {
         }
     }
 
+    @GetMapping("/obtenerPreguntasConIdArea/{idArea}")
+    public ResponseEntity<?> obtenerPreguntasConIdArea(@PathVariable("idArea") int idArea) {
+        try {
+            areasDTO area = areaService.obtenerPreguntasConIdArea(idArea);
+            if (area != null) {
+                return ResponseEntity.ok(area);
+            } else {
+                return ResponseEntity.notFound().build();
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error obteniendo el área y sus preguntas");
+        }
+    }
+
 
 }

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AreaServiceImpl implements AreaService {
@@ -51,5 +52,31 @@ public class AreaServiceImpl implements AreaService {
             areaDTO.add(AreasDTO);
         }
         return areaDTO;
+    }
+
+    @Override
+    public areasDTO obtenerPreguntasConIdArea(int idArea) {
+        Optional<Areas> areaOptional = areaRepository.findById(idArea);
+        if (areaOptional.isPresent()) {
+            Areas area = areaOptional.get();
+            areasDTO areaDTO = new areasDTO();
+            areaDTO.setIdArea(area.getIdArea());
+            areaDTO.setNombre(area.getNombre());
+            areaDTO.setFecha(area.getFecha());
+
+            List<Preguntas> preguntas = preguntasRepository.findAllByArea(area);
+            if (preguntas != null && !preguntas.isEmpty()) {
+                List<preguntasDTO> preguntasDTO = new ArrayList<>();
+                for (Preguntas pregunta : preguntas) {
+                    preguntasDTO preguntaDTO = new preguntasDTO(pregunta.getIdPregunta(), pregunta.getIdArea(), pregunta.getNombre());
+                    preguntasDTO.add(preguntaDTO);
+                }
+                areaDTO.setPreguntas(preguntasDTO);
+            }
+
+            return areaDTO;
+        } else {
+            return null;
+        }
     }
 }

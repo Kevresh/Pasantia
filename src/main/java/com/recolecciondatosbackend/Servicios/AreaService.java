@@ -12,4 +12,5 @@ public interface AreaService {
 
     List<areasDTO> obtenerAreasConPreguntas();
 
+    areasDTO obtenerPreguntasConIdArea(int idArea);
 }
