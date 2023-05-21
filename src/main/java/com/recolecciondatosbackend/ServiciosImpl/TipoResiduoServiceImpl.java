@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TipoResiduoServiceImpl implements TipoResiduoService {
@@ -48,5 +49,31 @@ public class TipoResiduoServiceImpl implements TipoResiduoService {
         }
 
         return tiposResiduoConMaterialDTO;
+    }
+
+    @Override
+    public tipoResiduoConMaterialDTO getMaterialesPorIdTipoResiduo(int idTipoResiduo) {
+        Optional<TipoResiduo> tipoResiduoOptional = tipoResiduoRepository.findById(idTipoResiduo);
+        if (tipoResiduoOptional.isPresent()) {
+            TipoResiduo tipoResiduo = tipoResiduoOptional.get();
+            tipoResiduoConMaterialDTO tipoResiduoDTO = new tipoResiduoConMaterialDTO();
+            tipoResiduoDTO.setIdTipoResiduo(tipoResiduo.getIdTipoResiduo());
+            tipoResiduoDTO.setNombre(tipoResiduo.getNombre());
+
+            List<Material> materiales = materialRepository.findByTipoResiduo(tipoResiduo);
+            List<materialDTO> materialesDTO = new ArrayList<>();
+
+            for (Material material : materiales) {
+                materialDTO materialDTO = new materialDTO();
+                materialDTO.setIdMaterial(material.getIdMaterial());
+                materialDTO.setNombre(material.getNombre());
+                materialesDTO.add(materialDTO);
+            }
+
+            tipoResiduoDTO.setMaterial(materialesDTO);
+            return tipoResiduoDTO;
+        } else {
+            return null;
+        }
     }
 }

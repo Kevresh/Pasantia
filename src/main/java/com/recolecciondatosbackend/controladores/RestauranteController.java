@@ -22,7 +22,7 @@ public class RestauranteController {
     @Autowired
     private RestauranteService restauranteService;
 
-    @GetMapping("/restaurantesConPlatos")
+    @GetMapping("/restaurantesConPlatos/{idPeriodo}")
     public ResponseEntity<?> getRestauranteConPlatos() {
         try {
             List<restauranteDTO> restaurantes = restauranteService.obtenerRestaurantesConPlatos();
