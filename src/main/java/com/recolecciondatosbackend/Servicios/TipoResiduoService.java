@@ -10,4 +10,6 @@ public interface TipoResiduoService {
     List<tipoResiduoConMaterialDTO> getMaterialesPorTipoResiduo();
 
     tipoResiduoConMaterialDTO getMaterialesPorIdTipoResiduo(int idTipoResiduo);
+
+    TipoResiduo getTipoResiduoById(int id);
 }

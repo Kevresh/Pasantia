@@ -3,6 +3,7 @@ package com.recolecciondatosbackend.ServiciosImpl;
 import com.recolecciondatosbackend.DTO.materialDTO;
 import com.recolecciondatosbackend.DTO.tipoResiduoConMaterialDTO;
 import com.recolecciondatosbackend.Servicios.TipoResiduoService;
+import com.recolecciondatosbackend.excepciones.ResourceNotFoundException;
 import com.recolecciondatosbackend.modelos.Material;
 import com.recolecciondatosbackend.modelos.TipoResiduo;
 import com.recolecciondatosbackend.repositorios.MaterialRepository;
@@ -75,5 +76,11 @@ public class TipoResiduoServiceImpl implements TipoResiduoService {
         } else {
             return null;
         }
+    }
+
+    @Override
+    public TipoResiduo getTipoResiduoById(int id) {
+        return tipoResiduoRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("No existe el tipo residuo con el id " + id));
     }
 }
