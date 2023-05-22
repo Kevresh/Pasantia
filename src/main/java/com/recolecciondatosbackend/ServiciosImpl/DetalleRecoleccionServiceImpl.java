@@ -44,6 +44,7 @@ public class DetalleRecoleccionServiceImpl implements DetalleRecoleccionService 
                 detalleRecoleccion.setId(new DetalleRecoleccionPK(recoleccion.getIdRecoleccion(), detallesRecoleccionDTO.getIdMaterial()));
                 detalleRecoleccion.setCantidad(detallesRecoleccionDTO.getCantidad());
                 detalleRecoleccion.setValorUnidad(detallesRecoleccionDTO.getValorUnidad());
+                detalleRecoleccion.setFechaRegistro(detallesRecoleccionDTO.getFechaRegistro());
 
                 detalleRecoleccionRepository.save(detalleRecoleccion);
             }

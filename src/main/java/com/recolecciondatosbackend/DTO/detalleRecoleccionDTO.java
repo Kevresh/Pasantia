@@ -4,6 +4,9 @@ import com.recolecciondatosbackend.modelos.LlavesCompuestass.DetalleRecoleccionP
 import com.recolecciondatosbackend.modelos.Material;
 import com.recolecciondatosbackend.modelos.Recoleccion;
 import jakarta.persistence.*;
+import org.springframework.cglib.core.Local;
+
+import java.time.LocalDate;
 
 public class detalleRecoleccionDTO {
 
@@ -14,6 +17,16 @@ public class detalleRecoleccionDTO {
     private double cantidad;
 
     private double valorUnidad;
+
+    private LocalDate fechaRegistro;
+
+    public LocalDate getFechaRegistro() {
+        return fechaRegistro;
+    }
+
+    public void setFechaRegistro(LocalDate fechaRegistro) {
+        this.fechaRegistro = fechaRegistro;
+    }
 
     public recoleccionDTO getRecoleccion() {
         return recoleccion;
@@ -47,11 +60,12 @@ public class detalleRecoleccionDTO {
         this.valorUnidad = valorUnidad;
     }
 
-    public detalleRecoleccionDTO(recoleccionDTO recoleccion, int idMaterial, double cantidad, double valorUnidad) {
+    public detalleRecoleccionDTO(recoleccionDTO recoleccion, int idMaterial, double cantidad, double valorUnidad, LocalDate fechaRegistro) {
         this.recoleccion = recoleccion;
         this.idMaterial = idMaterial;
         this.cantidad = cantidad;
         this.valorUnidad = valorUnidad;
+        this.fechaRegistro = fechaRegistro;
     }
 
     public detalleRecoleccionDTO() {

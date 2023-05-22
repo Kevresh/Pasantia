@@ -3,6 +3,8 @@ package com.recolecciondatosbackend.modelos;
 import com.recolecciondatosbackend.modelos.LlavesCompuestass.DetalleRecoleccionPK;
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "detalleRecoleccion")
 public class DetalleRecoleccion {
@@ -23,6 +25,17 @@ public class DetalleRecoleccion {
 
     @Column(name = "valorUnidad", nullable = false)
     private double valorUnidad;
+
+    @Column(name = "fechaRegistro", nullable = false)
+    private LocalDate fechaRegistro;
+
+    public LocalDate getFechaRegistro() {
+        return fechaRegistro;
+    }
+
+    public void setFechaRegistro(LocalDate fechaRegistro) {
+        this.fechaRegistro = fechaRegistro;
+    }
 
     public DetalleRecoleccionPK getId() {
         return id;
@@ -64,12 +77,13 @@ public class DetalleRecoleccion {
         this.valorUnidad = valorUnidad;
     }
 
-    public DetalleRecoleccion(DetalleRecoleccionPK id, Recoleccion recoleccion, Material material, double cantidad, double valorUnidad) {
+    public DetalleRecoleccion(DetalleRecoleccionPK id, Recoleccion recoleccion, Material material, double cantidad, double valorUnidad, LocalDate fechaRegistro) {
         this.id = id;
         this.recoleccion = recoleccion;
         this.material = material;
         this.cantidad = cantidad;
         this.valorUnidad = valorUnidad;
+        this.fechaRegistro = fechaRegistro;
     }
 
     public DetalleRecoleccion() {
