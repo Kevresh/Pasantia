@@ -1,9 +1,7 @@
 package com.recolecciondatosbackend.controladores;
 
-import com.recolecciondatosbackend.DTO.platoBasicoDTO;
 import com.recolecciondatosbackend.DTO.platoDTO;
 import com.recolecciondatosbackend.Servicios.PlatoService;
-import com.recolecciondatosbackend.modelos.Plato;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +18,7 @@ public class PlatosController {
     private PlatoService platoService;
 
     @PostMapping("/crear")
-    public ResponseEntity<?> crearPlato(@RequestBody platoBasicoDTO nuevoPlatoRequest) {
+    public ResponseEntity<?> crearPlato(@RequestBody platoDTO nuevoPlatoRequest) {
         return platoService.crearPlato(nuevoPlatoRequest);
     }
 
@@ -35,8 +33,8 @@ public class PlatosController {
         }
     }
 
-    @PutMapping("/EditarPrecio/{id}/{precio}")
-    public ResponseEntity<?> editarPrecioPlatoPorId(@PathVariable int id, @PathVariable int precio){
-            return platoService.editarPrecioPlatoPorId(id, precio);
+    @PutMapping("/EditarPrecio/{idPlato}/{idPeriodo}/{precio}")
+    public ResponseEntity<?> editarPrecioPlatoPorId(@PathVariable int idPlato,@PathVariable int idPeriodo, @PathVariable int precio){
+            return platoService.editarPrecioPlatoPorId(idPlato, idPeriodo ,precio);
     }
 }

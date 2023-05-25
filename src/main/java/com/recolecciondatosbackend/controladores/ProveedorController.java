@@ -1,7 +1,5 @@
 package com.recolecciondatosbackend.controladores;
 
-import com.recolecciondatosbackend.DTO.facturaDTO;
-import com.recolecciondatosbackend.DTO.platoBasicoDTO;
 import com.recolecciondatosbackend.DTO.proveedorDTO;
 import com.recolecciondatosbackend.Servicios.ProveedorService;
 import com.recolecciondatosbackend.modelos.Proveedor;

@@ -1,6 +1,7 @@
 package com.recolecciondatosbackend.DTO;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.recolecciondatosbackend.modelos.Precio;
 import com.recolecciondatosbackend.modelos.Restaurante;
 import jakarta.persistence.*;
 
@@ -9,41 +10,24 @@ import java.time.LocalDate;
 
 public class platoDTO implements Serializable {
 
-    private int idPlato;
 
-    @JsonIgnore
-    private Restaurante restaurante;
+    private int idRestaurante;
 
-    private int idPeriodo;
 
     private String nombre;
 
-    private int precio;
-
     private LocalDate fechaCreacion;
 
-    public int getIdPeriodo() {
-        return idPeriodo;
+    private int precio;
+
+    private int idPeriodo;
+
+    public int getIdRestaurante() {
+        return idRestaurante;
     }
 
-    public void setIdPeriodo(int idPeriodo) {
-        this.idPeriodo = idPeriodo;
-    }
-
-    public int getIdPlato() {
-        return idPlato;
-    }
-
-    public void setIdPlato(int idPlato) {
-        this.idPlato = idPlato;
-    }
-
-    public Restaurante getRestaurante() {
-        return restaurante;
-    }
-
-    public void setRestaurante(Restaurante restaurante) {
-        this.restaurante = restaurante;
+    public void setIdRestaurante(int idRestaurante) {
+        this.idRestaurante = idRestaurante;
     }
 
     public String getNombre() {
@@ -54,14 +38,6 @@ public class platoDTO implements Serializable {
         this.nombre = nombre;
     }
 
-    public int getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(int precio) {
-        this.precio = precio;
-    }
-
     public LocalDate getFechaCreacion() {
         return fechaCreacion;
     }
@@ -70,12 +46,28 @@ public class platoDTO implements Serializable {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public platoDTO(int idPlato, int idPeriodo, String nombre, int precio, LocalDate fechaCreacion) {
-        this.idPlato = idPlato;
-        this.idPeriodo = idPeriodo;
-        this.nombre = nombre;
+    public int getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(int precio) {
         this.precio = precio;
+    }
+
+    public int getIdPeriodo() {
+        return idPeriodo;
+    }
+
+    public void setIdPeriodo(int idPeriodo) {
+        this.idPeriodo = idPeriodo;
+    }
+
+    public platoDTO(int idRestaurante, String nombre, LocalDate fechaCreacion, int precio, int idPeriodo) {
+        this.idRestaurante = idRestaurante;
+        this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;
+        this.precio = precio;
+        this.idPeriodo = idPeriodo;
     }
 
     public platoDTO() {

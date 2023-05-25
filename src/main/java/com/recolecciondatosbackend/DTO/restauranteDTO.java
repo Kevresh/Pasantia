@@ -6,7 +6,7 @@ import java.util.List;
 public class restauranteDTO implements Serializable {
     private int idRestaurante;
     private String nombre;
-    private List<platoDTO> platos;
+    private List<platoBasicoDTO> platos;
 
     public int getIdRestaurante() {
         return idRestaurante;
@@ -24,18 +24,18 @@ public class restauranteDTO implements Serializable {
         this.nombre = nombre;
     }
 
-    public List<platoDTO> getPlatos() {
+    public List<platoBasicoDTO> getPlatos() {
         return platos;
     }
 
-    public void setPlatos(List<platoDTO> platos) {
+    public void setPlatos(List<platoBasicoDTO> platos) {
         this.platos = platos;
     }
 
     public restauranteDTO() {
     }
 
-    public restauranteDTO(int idRestaurante, String nombre, List<platoDTO> platos) {
+    public restauranteDTO(int idRestaurante, String nombre, List<platoBasicoDTO> platos) {
         this.idRestaurante = idRestaurante;
         this.nombre = nombre;
         this.platos = platos;

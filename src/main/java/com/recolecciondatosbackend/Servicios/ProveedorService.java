@@ -1,6 +1,5 @@
 package com.recolecciondatosbackend.Servicios;
 
-import com.recolecciondatosbackend.DTO.platoBasicoDTO;
 import com.recolecciondatosbackend.DTO.proveedorDTO;
 import com.recolecciondatosbackend.modelos.Proveedor;
 import org.springframework.http.ResponseEntity;

@@ -1,5 +1,6 @@
 package com.recolecciondatosbackend.ServiciosImpl;
 
+import com.recolecciondatosbackend.DTO.platoBasicoDTO;
 import com.recolecciondatosbackend.DTO.platoDTO;
 import com.recolecciondatosbackend.DTO.restauranteBasicoDTO;
 import com.recolecciondatosbackend.DTO.restauranteDTO;
@@ -52,11 +53,9 @@ public class RestauranteServiceImpl implements RestauranteService {
             restauranteDTO.setNombre(restaurante.getNombre());
             List<Plato> platos = platoRepository.findAllByRestaurante(restaurante);
             if (platos != null && !platos.isEmpty()) {
-                List<platoDTO> platosDTO = new ArrayList<>();
+                List<platoBasicoDTO> platosDTO = new ArrayList<>();
                 for (Plato plato : platos) {
-
-
-                    platoDTO platoDTO = new platoDTO(plato.getIdPlato(), plato.getPeriodo().getIdPeriodo(),plato.getNombre(),plato.getPrecio(),plato.getFechaCreacion());
+                    platoBasicoDTO platoDTO = new platoBasicoDTO(plato.getIdPlato(), plato.getNombre(),plato.getFechaCreacion());
 
                     platosDTO.add(platoDTO);
                 }

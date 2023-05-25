@@ -1,36 +1,21 @@
 package com.recolecciondatosbackend.DTO;
 
-import com.recolecciondatosbackend.modelos.Restaurante;
-import jakarta.persistence.*;
-
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class platoBasicoDTO {
+public class platoBasicoDTO implements Serializable {
 
-    private int idRestaurante;
-
-    private int idPeriodo;
-
+    private int idPlato;
     private String nombre;
-
-    private int precio;
 
     private LocalDate fechaCreacion;
 
-    public int getIdPeriodo() {
-        return idPeriodo;
+    public int getIdPlato() {
+        return idPlato;
     }
 
-    public void setIdPeriodo(int idPeriodo) {
-        this.idPeriodo = idPeriodo;
-    }
-
-    public int getIdRestaurante() {
-        return idRestaurante;
-    }
-
-    public void setIdRestaurante(int idRestaurante) {
-        this.idRestaurante = idRestaurante;
+    public void setIdPlato(int idPlato) {
+        this.idPlato = idPlato;
     }
 
     public String getNombre() {
@@ -41,13 +26,6 @@ public class platoBasicoDTO {
         this.nombre = nombre;
     }
 
-    public int getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(int precio) {
-        this.precio = precio;
-    }
 
     public LocalDate getFechaCreacion() {
         return fechaCreacion;
@@ -57,14 +35,12 @@ public class platoBasicoDTO {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public platoBasicoDTO() {
+    public platoBasicoDTO(int idPlato,String nombre, LocalDate fechaCreacion) {
+        this.idPlato = idPlato;
+        this.nombre = nombre;
+        this.fechaCreacion = fechaCreacion;
     }
 
-    public platoBasicoDTO(int idRestaurante, int idPeriodo, String nombre, int precio, LocalDate fechaCreacion) {
-        this.idRestaurante = idRestaurante;
-        this.idPeriodo = idPeriodo;
-        this.nombre = nombre;
-        this.precio = precio;
-        this.fechaCreacion = fechaCreacion;
+    public platoBasicoDTO() {
     }
 }
