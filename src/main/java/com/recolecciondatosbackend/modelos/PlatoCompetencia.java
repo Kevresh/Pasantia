@@ -5,24 +5,19 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "plato_competencia")
+@Table(name = "platoCompetencia")
 public class PlatoCompetencia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPlato;
 
-    @Column(name = "nombreUniversidad", nullable = false)
-    private String nombreUniversidad;
-
-    @Column(name = "nombreRestaurante", nullable = false)
-    private String nombreRestaurante;
+    @ManyToOne
+    @JoinColumn(name = "idRestauranteCompetencia", nullable = false)
+    private RestauranteCompetencia restauranteCompetencia;
 
     @Column(name = "Nombre", nullable = false)
     private String nombre;
-
-    @Column(name = "Precio", nullable = false)
-    private int precio;
 
     @Column(name = "fechaCreacion", nullable = false)
     private LocalDate fechaCreacion;
@@ -35,20 +30,12 @@ public class PlatoCompetencia {
         this.idPlato = idPlato;
     }
 
-    public String getNombreUniversidad() {
-        return nombreUniversidad;
+    public RestauranteCompetencia getRestauranteCompetencia() {
+        return restauranteCompetencia;
     }
 
-    public void setNombreUniversidad(String nombreUniversidad) {
-        this.nombreUniversidad = nombreUniversidad;
-    }
-
-    public String getNombreRestaurante() {
-        return nombreRestaurante;
-    }
-
-    public void setNombreRestaurante(String nombreRestaurante) {
-        this.nombreRestaurante = nombreRestaurante;
+    public void setRestauranteCompetencia(RestauranteCompetencia restauranteCompetencia) {
+        this.restauranteCompetencia = restauranteCompetencia;
     }
 
     public String getNombre() {
@@ -59,14 +46,6 @@ public class PlatoCompetencia {
         this.nombre = nombre;
     }
 
-    public int getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(int precio) {
-        this.precio = precio;
-    }
-
     public LocalDate getFechaCreacion() {
         return fechaCreacion;
     }
@@ -75,15 +54,13 @@ public class PlatoCompetencia {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public PlatoCompetencia() {
+    public PlatoCompetencia(int idPlato, RestauranteCompetencia restauranteCompetencia, String nombre, LocalDate fechaCreacion) {
+        this.idPlato = idPlato;
+        this.restauranteCompetencia = restauranteCompetencia;
+        this.nombre = nombre;
+        this.fechaCreacion = fechaCreacion;
     }
 
-    public PlatoCompetencia(int idPlato, String nombreUniversidad, String nombreRestaurante, String nombre, int precio, LocalDate fechaCreacion) {
-        this.idPlato = idPlato;
-        this.nombreUniversidad = nombreUniversidad;
-        this.nombreRestaurante = nombreRestaurante;
-        this.nombre = nombre;
-        this.precio = precio;
-        this.fechaCreacion = fechaCreacion;
+    public PlatoCompetencia() {
     }
 }
