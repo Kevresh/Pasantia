@@ -18,9 +18,8 @@ public class PlatoCompetenciaController {
     @Autowired
     PlatoCompetenciaService platoCompetenciaService;
 
-//    @PostMapping("/crearPlatoCompetencia")
-//    public ResponseEntity<?> crearPlatoCompetencia(@RequestBody platoCompetenciaDTO nuevoPlatoRequest) {
-//        PlatoCompetencia plato = new PlatoCompetencia(nuevoPlatoRequest.getIdPlato(), nuevoPlatoRequest.getNombreUniversidad(), nuevoPlatoRequest.getNombreRestaurante(), nuevoPlatoRequest.getNombre(), nuevoPlatoRequest.getPrecio(), nuevoPlatoRequest.getFechaCreacion());
-//        return platoCompetenciaService.crearPlatoCompetencia(plato);
-//    }
+    @PostMapping("/crear")
+    public ResponseEntity<?> crearPlatoCompetencia(@RequestBody platoCompetenciaDTO PlatoCompetenciaDTO) {
+        return platoCompetenciaService.crearPlatoCompetencia(PlatoCompetenciaDTO);
+    }
 }

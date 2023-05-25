@@ -9,40 +9,21 @@ import java.time.LocalDate;
 
 public class platoCompetenciaDTO {
 
-    private int idPlato;
-
-    private String nombreUniversidad;
-
-    private String nombreRestaurante;
-
+    private int idRestauranteCompetencia;
     private String nombre;
-
-    private int precio;
 
     private LocalDate fechaCreacion;
 
-    public int getIdPlato() {
-        return idPlato;
+    private int precio;
+
+    private int idPeriodo;
+
+    public int getIdRestauranteCompetencia() {
+        return idRestauranteCompetencia;
     }
 
-    public void setIdPlato(int idPlato) {
-        this.idPlato = idPlato;
-    }
-
-    public String getNombreUniversidad() {
-        return nombreUniversidad;
-    }
-
-    public void setNombreUniversidad(String nombreUniversidad) {
-        this.nombreUniversidad = nombreUniversidad;
-    }
-
-    public String getNombreRestaurante() {
-        return nombreRestaurante;
-    }
-
-    public void setNombreRestaurante(String nombreRestaurante) {
-        this.nombreRestaurante = nombreRestaurante;
+    public void setIdRestauranteCompetencia(int idRestauranteCompetencia) {
+        this.idRestauranteCompetencia = idRestauranteCompetencia;
     }
 
     public String getNombre() {
@@ -53,14 +34,6 @@ public class platoCompetenciaDTO {
         this.nombre = nombre;
     }
 
-    public int getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(int precio) {
-        this.precio = precio;
-    }
-
     public LocalDate getFechaCreacion() {
         return fechaCreacion;
     }
@@ -69,15 +42,30 @@ public class platoCompetenciaDTO {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public platoCompetenciaDTO() {
+    public int getPrecio() {
+        return precio;
     }
 
-    public platoCompetenciaDTO(int idPlato, String nombreUniversidad, String nombreRestaurante, String nombre, int precio, LocalDate fechaCreacion) {
-        this.idPlato = idPlato;
-        this.nombreUniversidad = nombreUniversidad;
-        this.nombreRestaurante = nombreRestaurante;
-        this.nombre = nombre;
+    public void setPrecio(int precio) {
         this.precio = precio;
+    }
+
+    public int getIdPeriodo() {
+        return idPeriodo;
+    }
+
+    public void setIdPeriodo(int idPeriodo) {
+        this.idPeriodo = idPeriodo;
+    }
+
+    public platoCompetenciaDTO(int idRestauranteCompetencia, String nombre, LocalDate fechaCreacion, int precio, int idPeriodo) {
+        this.idRestauranteCompetencia = idRestauranteCompetencia;
+        this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;
+        this.precio = precio;
+        this.idPeriodo = idPeriodo;
+    }
+
+    public platoCompetenciaDTO() {
     }
 }

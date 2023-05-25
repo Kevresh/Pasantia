@@ -11,4 +11,6 @@ public interface RestauranteCompetenciaService {
 
     ResponseEntity<?> creaerRestauranteCompetencia(String nombreRestauranteCompetencia, int idUniversidadCompetencia);
     List<RestauranteCompetencia> obtenerTodosLosRestaurantesCompetencia();
+
+    RestauranteCompetencia getRestauranteCompetenciaById(int idRestauranteCompetencia);
 }

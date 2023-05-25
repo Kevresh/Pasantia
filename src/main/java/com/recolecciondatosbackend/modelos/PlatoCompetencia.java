@@ -10,7 +10,8 @@ public class PlatoCompetencia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idPlato;
+    @Column(name = "idPlatoCompetencia")
+    private int idPlatoCompetencia;
 
     @ManyToOne
     @JoinColumn(name = "idRestauranteCompetencia", nullable = false)
@@ -22,12 +23,12 @@ public class PlatoCompetencia {
     @Column(name = "fechaCreacion", nullable = false)
     private LocalDate fechaCreacion;
 
-    public int getIdPlato() {
-        return idPlato;
+    public int getIdPlatoCompetencia() {
+        return idPlatoCompetencia;
     }
 
-    public void setIdPlato(int idPlato) {
-        this.idPlato = idPlato;
+    public void setIdPlatoCompetencia(int idPlato) {
+        this.idPlatoCompetencia = idPlato;
     }
 
     public RestauranteCompetencia getRestauranteCompetencia() {
@@ -54,8 +55,7 @@ public class PlatoCompetencia {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public PlatoCompetencia(int idPlato, RestauranteCompetencia restauranteCompetencia, String nombre, LocalDate fechaCreacion) {
-        this.idPlato = idPlato;
+    public PlatoCompetencia(RestauranteCompetencia restauranteCompetencia, String nombre, LocalDate fechaCreacion) {
         this.restauranteCompetencia = restauranteCompetencia;
         this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;

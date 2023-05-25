@@ -6,6 +6,7 @@ import com.recolecciondatosbackend.DTO.restauranteDTO;
 import com.recolecciondatosbackend.DTO.universidadCompetenciaDTO;
 import com.recolecciondatosbackend.Servicios.RestauranteCompetenciaService;
 import com.recolecciondatosbackend.Servicios.UniversidadCompetenciaService;
+import com.recolecciondatosbackend.excepciones.ResourceNotFoundException;
 import com.recolecciondatosbackend.modelos.Plato;
 import com.recolecciondatosbackend.modelos.Restaurante;
 import com.recolecciondatosbackend.modelos.RestauranteCompetencia;
@@ -46,6 +47,12 @@ public class RestauranteCompetenciaServiceImpl implements RestauranteCompetencia
     @Override
     public List<RestauranteCompetencia> obtenerTodosLosRestaurantesCompetencia() {
         return restauranteCompetenciaRepository.findAll();
+    }
+
+    @Override
+    public RestauranteCompetencia getRestauranteCompetenciaById(int idRestauranteCompetencia) {
+        return restauranteCompetenciaRepository.findById(idRestauranteCompetencia)
+                .orElseThrow(() -> new ResourceNotFoundException("No existe el restaurante con el id " + idRestauranteCompetencia));
     }
 
 }
