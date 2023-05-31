@@ -9,7 +9,6 @@ import java.util.List;
 public interface PlatoService {
     ResponseEntity<?> crearPlato(platoDTO plato);
 
-    List<platoDTO> obtenerPlatosConRestaurantes();
 
     Plato getPlatoById(int id);
 

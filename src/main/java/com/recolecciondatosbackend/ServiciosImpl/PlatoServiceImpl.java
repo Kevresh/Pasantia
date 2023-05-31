@@ -62,14 +62,6 @@ public class PlatoServiceImpl implements PlatoService {
     }
 
     @Override
-    public List<platoDTO> obtenerPlatosConRestaurantes() {
-        List<Plato> platos = platoRepository.findAll();
-        return platos.stream()
-                .map(plato -> modelMapper.map(plato, platoDTO.class))
-                .collect(Collectors.toList());
-    }
-
-    @Override
     public Plato getPlatoById(int id) {
         return platoRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el plato con el id " + id));

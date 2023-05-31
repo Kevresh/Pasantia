@@ -17,14 +17,4 @@ public class PreguntasController {
     @Autowired
     PreguntasService preguntasService;
 
-    @GetMapping("/obtenerPreguntasPorIdArea/{id}")
-    public ResponseEntity<?> getPreguntasPorId(@PathVariable int id) {
-        try {
-            List<preguntasDTO> preguntas = preguntasService.obtenerPreguntasPorArea(id);
-            return ResponseEntity.ok(preguntas);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Error obteniendo la informacion de las areas");
-        }
-    }
 }
