@@ -16,19 +16,4 @@ public class PreguntasServiceImpl implements PreguntasService {
     @Autowired
     PreguntasRepository preguntasRepository;
 
-    @Override
-    public List<preguntasDTO> obtenerPreguntasPorArea(int idArea) {
-        List<Preguntas> preguntas = preguntasRepository.findByAreaIdArea(idArea);
-        List<preguntasDTO> PreguntasDTO = preguntas.stream()
-                .map(this::convertirAPreguntasDTO)
-                .collect(Collectors.toList());
-        return PreguntasDTO;
-    }
-
-    private preguntasDTO convertirAPreguntasDTO(Preguntas pregunta) {
-        preguntasDTO preguntaDTO = new preguntasDTO();
-        preguntaDTO.setIdPunto(pregunta.getIdPregunta());
-        preguntaDTO.setNombre(pregunta.getNombre());
-        return preguntaDTO;
-    }
 }
