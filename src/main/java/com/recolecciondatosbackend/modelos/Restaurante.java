@@ -11,11 +11,7 @@ public class Restaurante {
     @Column(name = "idRestaurante")
     private int idRestaurante;
 
-    @ManyToOne
-    @JoinColumn(name = "idEvaluacion")
-    private EvCalidad evaluacion;
-
-    @Column(name = "Nombre")
+    @Column(name = "Nombre", nullable = false)
     private String nombre;
 
     // getters y setters
@@ -28,13 +24,8 @@ public class Restaurante {
         this.idRestaurante = idRestaurante;
     }
 
-    public EvCalidad getEvaluacion() {
-        return evaluacion;
-    }
 
-    public void setEvaluacion(EvCalidad evaluacion) {
-        this.evaluacion = evaluacion;
-    }
+
 
     public String getNombre() {
         return nombre;
@@ -47,9 +38,7 @@ public class Restaurante {
     public Restaurante() {
     }
 
-    public Restaurante(int idRestaurante, EvCalidad evaluacion, String nombre) {
-        this.idRestaurante = idRestaurante;
-        this.evaluacion = evaluacion;
+    public Restaurante(int idRestaurante, String nombre) {
         this.nombre = nombre;
     }
 }

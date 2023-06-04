@@ -14,16 +14,13 @@ public class Plato {
     private int idPlato;
 
     @ManyToOne
-    @JoinColumn(name = "idRestaurante")
+    @JoinColumn(name = "idRestaurante", nullable = false)
     private Restaurante restaurante;
 
-    @Column(name = "Nombre")
+    @Column(name = "Nombre", nullable = false)
     private String nombre;
 
-    @Column(name = "Precio")
-    private int precio;
-
-    @Column(name = "fechaCreacion")
+    @Column(name = "fechaCreacion", nullable = false)
     private LocalDate fechaCreacion;
 
     public int getIdPlato() {
@@ -50,14 +47,6 @@ public class Plato {
         this.nombre = nombre;
     }
 
-    public int getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(int precio) {
-        this.precio = precio;
-    }
-
     public LocalDate getFechaCreacion() {
         return fechaCreacion;
     }
@@ -66,14 +55,12 @@ public class Plato {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public Plato() {
-    }
-
-    public Plato(int idPlato, Restaurante restaurante, String nombre, int precio, LocalDate fechaCreacion) {
-        this.idPlato = idPlato;
+    public Plato(Restaurante restaurante, String nombre, LocalDate fechaCreacion) {
         this.restaurante = restaurante;
         this.nombre = nombre;
-        this.precio = precio;
         this.fechaCreacion = fechaCreacion;
+    }
+
+    public Plato() {
     }
 }
